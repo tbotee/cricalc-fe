@@ -936,6 +936,10 @@ ul.list-links li a:hover {
     width: 100%;
 }
 
+#page-footer .inner ul.list-links li a {
+    padding: 2px 0;
+}
+
 /****
   6. Content
 ****/

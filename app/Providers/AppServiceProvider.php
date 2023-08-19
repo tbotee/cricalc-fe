@@ -24,9 +24,14 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $regions = Cache::remember('regions_with', null, function () {
-                return Region::with(['cities' => function ($query) {
-                    $query->orderBy('name', 'asc');
-                }])->orderBy('name', 'asc')->get();
+                return Region::select(['id', 'name', 'slug'])
+                    ->with(['cities' => function ($query) {
+                        $query->select('id', 'name', 'slug');
+                        $query->orderBy('name', 'asc')
+                            ->select(['id', 'name', 'slug']);
+                    }])
+                    ->select('id', 'name', 'slug')
+                    ->orderBy('name', 'asc')->get();
             });
             $view->with('regions', $regions);
         });

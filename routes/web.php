@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegionStatisticsController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
+Route::post('/', [WelcomeController::class, 'search'])->name('welcome.search');
+
+Route::get('/preturi-in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show'])
+    ->name('region.show')
+    ->middleware('check.region');
