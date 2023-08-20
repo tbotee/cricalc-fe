@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LocationStatisticsController;
 use App\Http\Controllers\RegionStatisticsController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::post('/', [WelcomeController::class, 'search'])->name('welcome.search');
 
-Route::get('/preturi-in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show'])
+Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show'])
     ->name('region.show')
-    ->middleware('check.region');
+    ->middleware('check.location');
+
+Route::get('/preturi-apartamentelor/{numberOfRooms}/in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show_by_room_number'])
+    ->name('region.show_by_room_number')
+    ->middleware('check.location');
+
+Route::get('/preturile-apartamentelor/{locationSlug}/judetul/{regionSlug}/', [LocationStatisticsController::class, 'show'])
+    ->name('location.show')
+    ->middleware('check.location');
+
+Route::get('/preturile-apartamentelor/{numberOfRooms}/{locationSlug}/judetul/{regionSlug}/', [LocationStatisticsController::class, 'show_by_room_number'])
+    ->name('location.show_by_room_number')
+    ->middleware('check.location');

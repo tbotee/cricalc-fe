@@ -303,6 +303,25 @@ $(document).ready(function($) {
 
     centerSearchBox();
 
+    $('#home-search-form').on('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var $form = $(this);
+        var selectedValue = $('#searchRegionSelect').val();
+        if (selectedValue) {
+            $form.off('submit').submit();
+        } else {
+            $('button[data-id="searchRegionSelect"]').addClass('is-invalid');
+        }
+    });
+
+    $('#home-search-form').on('change', function(event) {
+        var selectedValue = $('#searchRegionSelect').val();
+        if (selectedValue) {
+            $('button[data-id="searchRegionSelect"]').removeClass('is-invalid');
+        }
+    });
+
+
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -760,7 +779,6 @@ function restoreSelect(id, defValue) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
-
     if (document.getElementById('regionsArray')) {
         const regions = JSON.parse(document.getElementById('regionsArray').value);
 

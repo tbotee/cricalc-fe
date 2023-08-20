@@ -10,4 +10,8 @@ class RegionStatisticsController extends Controller
     {
         return view('region-statistics');
     }
+    public function show_by_room_number(Request $request, string $regionSlug)
+    {
+        return view('region-statistics');
+    }
 }
