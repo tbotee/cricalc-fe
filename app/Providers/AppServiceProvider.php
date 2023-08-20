@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Region;
+use App\Services\ApartmentStatisticsService;
 use App\View\Components\Forms\SearchBox;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
@@ -16,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(ApartmentStatisticsService::class, function ($app) {
+            return new ApartmentStatisticsService();
+        });
     }
 
     /**

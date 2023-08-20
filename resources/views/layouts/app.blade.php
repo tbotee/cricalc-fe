@@ -131,6 +131,8 @@
 <script type="text/javascript" src="{{ asset('js/icheck.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.vanillabox-0.1.5.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/retina-1.1.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/waypoints.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jshashtable-2.1_src.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.numberformatter-1.2.3.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/tmpl.js') }}"></script>
