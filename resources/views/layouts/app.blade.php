@@ -16,29 +16,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
 </head>
-<body class="page-homepage navigation-fixed-top page-slider page-slider-search-box" id="page-top" data-spy="scroll" data-target=".navigation" data-offset="90">
+<body @yield('bodyProps')>
 <div class="wrapper">
     <div class="navigation">
-{{--        <div class="secondary-navigation">--}}
-{{--            <div class="container">--}}
-{{--                <div class="contact">--}}
-{{--                    <figure><strong>Phone:</strong>+1 810-991-3842</figure>--}}
-{{--                    <figure><strong>Email:</strong>zoner@example.com</figure>--}}
-{{--                </div>--}}
-{{--                <div class="user-area">--}}
-{{--                    <div class="actions">--}}
-{{--                        <a href="create-agency.html" class="promoted">Create Agency</a>--}}
-{{--                        <a href="create-account.html" class="promoted"><strong>Register</strong></a>--}}
-{{--                        <a href="sign-in.html">Sign In</a>--}}
-{{--                    </div>--}}
-{{--                    <div class="language-bar">--}}
-{{--                        <a href="#" class="active"><img src="assets/img/flags/gb.png" alt=""></a>--}}
-{{--                        <a href="#"><img src="assets/img/flags/de.png" alt=""></a>--}}
-{{--                        <a href="#"><img src="assets/img/flags/es.png" alt=""></a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <div class="container">
             <header class="navbar" id="top" role="banner">
                 <div class="navbar-header">

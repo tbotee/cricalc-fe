@@ -25,3 +25,32 @@ Your Partner in Real Estate Insights:
 RealEstateStats Romania is more than just a data aggregator; we're your partner in exploring Romania's real estate landscape. Whether you're looking for your dream home, contemplating an investment, or just staying updated on the market, our platform is here to guide you every step of the way.
 
 Join us in revolutionizing the way you perceive and engage with real estate data. Discover the stories behind the averages, explore the nuances of each city, and embark on a journey of informed decision-making with RealEstateStats Romania. Your real estate adventure begins here.
+
+
+services:
+1. Property Price Analysis:
+Description: Gain a deeper understanding of the real estate market with our Property Price Analysis service. Our experts utilize advanced data analytics to provide you with comprehensive insights into price trends, helping you make well-informed decisions whether you're buying, selling, or investing in property. Navigate the complexities of the market with confidence, armed with accurate and up-to-date information.
+
+2. Location Insights:
+Description: Unlock the secrets of Romania's regions and cities with our Location Insights service. We go beyond averages, delving into the nuances that make each area unique. Explore factors such as amenities, transportation, schools, and more that influence property values. Whether you're looking for a vibrant urban lifestyle or serene countryside living, our insights guide you towards the perfect location for your real estate aspirations.
+
+3. Customized Market Reports:
+Description: Tailor your real estate journey with our Customized Market Reports service. Tell us your preferences and objectives, and we'll generate detailed reports tailored to your needs. Whether you're a buyer, seller, or investor, our reports provide a comprehensive overview of properties, prices, and trends in the areas that matter to you. Make decisions backed by data that align with your goals.
+
+Property Price Analysis:
+Description: "Expert insights into market trends for informed property decisions."
+
+Location Insights:
+Description: "Discover unique factors shaping property values in Romania's regions."
+
+Customized Market Reports:
+Description: "Tailored reports for buyers, sellers, and investors with personalized insights."
+
+Property Price Analysis:
+Description: "<i class='fa fa-line-chart'></i> Expert insights for property decisions."
+
+Location Insights:
+Description: "<i class='fa fa-map-marker'></i> Explore factors shaping values."
+
+Customized Market Reports:
+Description: "<i class='fa fa-file-text'></i> Tailored reports for personalized insights."

@@ -3129,14 +3129,6 @@ ul.list-links li a:hover {
   border-bottom: 1px solid #f3f3f3;
   position: relative;
 }
-#sidebar .sidebar-navigation > li ul > li:before {
-  content: "•";
-  color: #1396e2;
-  font-size: 24px;
-  position: absolute;
-  left: -5px;
-  top: 2px;
-}
 #sidebar .sidebar-navigation > li ul > li ul {
   padding-left: 10px;
 }

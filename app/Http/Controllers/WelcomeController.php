@@ -10,8 +10,7 @@ class WelcomeController extends Controller
 {
     public function welcome(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $apartmentTypes = array_keys(config('constants.apartment_types'));
-        return view('welcome', [ 'apartmentTypes' => $apartmentTypes ]);
+        return view('welcome');
     }
 
     public function search(Request $request): \Illuminate\Http\RedirectResponse

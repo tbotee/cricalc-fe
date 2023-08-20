@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Region;
+use App\View\Components\Forms\SearchBox;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
