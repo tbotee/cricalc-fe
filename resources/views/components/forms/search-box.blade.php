@@ -22,15 +22,15 @@
             <option value="">{{ __('apartment.city') }}</option>
         </select>
     </div>
-    <div class="form-group">
-        <select name="numberOfRooms" id="roomNumber">
-            <option value="">{{ __('apartment.type') }}</option>
-            <option value="{{ $apartmentTypes[0] }}">{{ __('apartment.one_room') }}</option>
-            <option value="{{ $apartmentTypes[1] }}">{{ __('apartment.two_rooms') }}</option>
-            <option value="{{ $apartmentTypes[2] }}">{{ __('apartment.three_rooms') }}</option>
-            <option value="{{ $apartmentTypes[3] }}">{{ __('apartment.four_rooms') }}</option>
-        </select>
-    </div>
+{{--    <div class="form-group">--}}
+{{--        <select name="numberOfRooms" id="roomNumber">--}}
+{{--            <option value="">{{ __('apartment.type') }}</option>--}}
+{{--            <option value="{{ $apartmentTypes[0] }}">{{ __('apartment.one_room') }}</option>--}}
+{{--            <option value="{{ $apartmentTypes[1] }}">{{ __('apartment.two_rooms') }}</option>--}}
+{{--            <option value="{{ $apartmentTypes[2] }}">{{ __('apartment.three_rooms') }}</option>--}}
+{{--            <option value="{{ $apartmentTypes[3] }}">{{ __('apartment.four_rooms') }}</option>--}}
+{{--        </select>--}}
+{{--    </div>--}}
 {{--    <div class="form-group">--}}
 {{--        <div class="price-range">--}}
 {{--            <input id="price-input" type="text" name="price" value="1000;299000">--}}

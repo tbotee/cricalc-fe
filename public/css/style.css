@@ -4972,6 +4972,10 @@ body, html {
     width: 100% !important;
 }
 
+.m-b-20 {
+    margin-bottom: 20px !important;
+}
+
 .col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;

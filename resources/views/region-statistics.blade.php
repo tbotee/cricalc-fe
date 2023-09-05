@@ -17,9 +17,20 @@
         <div class="row">
             <div class="col-md-3 col-sm-2">
                 <section id="sidebar">
-                    <aside id="edit-search">
-                        <header><h3>{{ __('apartment.apartment_statistics') }}</h3></header>
-                        <x-forms.search-box/>
+                    <aside id="edit-search" class="m-b-20">
+                        <x-forms.city-select-box :regionSlug="$regionSlug"/>
+                    </aside>
+                    <aside>
+                        <ul class="sidebar-navigation">
+                            @foreach ($regions->where('slug', $regionSlug)->first()->cities as $city)
+                            <li>
+                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $city->slug]) }}">
+                                    <i class="fa fa-home"></i>
+                                    <span>{{ $city->name }}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
                     </aside>
                 </section>
             </div>

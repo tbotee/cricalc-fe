@@ -808,6 +808,17 @@ window.addEventListener('DOMContentLoaded', event => {
                 localStorage.setItem('roomNumber', event.target.value);
             }
         }
+
+        if (document.getElementsByClassName('searchRegionSelectChangeRegion')) {
+            const select = $('.searchRegionSelectChangeRegion');
+            select.on('change', function() {
+                const selectedOption = $(this).find('option:selected');
+                const url = selectedOption.attr('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        }
     }
 
 });
