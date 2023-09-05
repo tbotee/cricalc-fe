@@ -4,6 +4,7 @@ namespace App\Services;
 use App\Models\ProductStatistic;
 use App\Models\Region;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentStatisticsService
 {
@@ -111,5 +112,18 @@ class ApartmentStatisticsService
             ->orderBy('created_at', 'DESC')
             ->first();
         return $product->created_at;
+    }
+
+    public function getApartmentCount(string $startDate, string $endDate, int $category, int $cityId)
+    {
+        return ProductStatistic::select(
+            DB::raw('CEIL(AVG(`count`)) as average_count'),
+            DB::raw('CEIL(AVG(`average_price_with_outliners`)) as av_price'),
+        )
+            ->where('created_at', '>=', new Carbon($startDate))
+            ->where('created_at', '<=', new Carbon($endDate))
+            ->where('category_id', $category)
+            ->where('city_id', $cityId)
+            ->first();
     }
 }

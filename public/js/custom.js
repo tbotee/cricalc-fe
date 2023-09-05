@@ -356,12 +356,12 @@ $(window).load(function(){
 
 //  Show counter after appear
 
-    var $number = $('.number');
-    if ($number.length > 0 ) {
-        $number.waypoint(function() {
-            initCounter();
-        }, { offset: '100%' });
-    }
+    // var $number = $('.number');
+    // if ($number.length > 0 ) {
+    //     $number.waypoint(function() {
+    //         initCounter();
+    //     }, { offset: '100%' });
+    // }
 
     agentState();
 
@@ -598,12 +598,12 @@ function agentState(){
     }
 }
 
-function initCounter(){
-    $('.number').countTo({
-        speed: 3000,
-        refreshInterval: 50
-    });
-}
+// function initCounter(){
+//     $('.number').countTo({
+//         speed: 3000,
+//         refreshInterval: 50
+//     });
+// }
 
 function showAllButton(){
     var rowsToShow = 2; // number of collapsed rows to show

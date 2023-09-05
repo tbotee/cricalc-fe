@@ -46,15 +46,38 @@ class RegionStatisticsController extends Controller
                 function () use ($sortedCities, $startDate, $endDate) {
                     $statistics = ['aggregatedData' => []];
                     foreach ($sortedCities as $city) {
-                        $statistics['aggregatedData'][] = array(
+                        $res = array(
                             'city' => $city,
-                            'statistics' => $this->aSS->getStatistics(array(
-                                'groupBy' => 'month',
-                                'city_id' => $city->id,
-                                'startDate' => $startDate,
-                                'endDate' => $endDate,
-                            ))
+                            'one_room_count' => $this->aSS->getApartmentCount(
+                                $startDate,
+                                $endDate,
+                                config('constants.category_mapping')[1],
+                                $city->id
+                            ),
+                            'two_room_count' => $this->aSS->getApartmentCount(
+                                $startDate,
+                                $endDate,
+                                config('constants.category_mapping')[2],
+                                $city->id
+                            ),
+                            'three_room_count' => $this->aSS->getApartmentCount(
+                                $startDate,
+                                $endDate,
+                                config('constants.category_mapping')[3],
+                                $city->id
+                            ),
+                            'four_room_count' => $this->aSS->getApartmentCount(
+                                $startDate,
+                                $endDate,
+                                config('constants.category_mapping')[4],
+                                $city->id
+                            )
                         );
+                        $res['total_count'] = $res['one_room_count']->average_count +
+                            $res['two_room_count']->average_count +
+                            $res['three_room_count']->average_count +
+                            $res['four_room_count']->average_count;
+                        $statistics['aggregatedData'][] = $res;
                     }
                     return $statistics;
                 }),
