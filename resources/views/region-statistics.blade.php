@@ -51,11 +51,7 @@
                                     </div>
                                 </a>
                                 <div class="wrapper">
-                                    <header>
-                                        <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['city']->slug]) }}">
-                                            <h2>{{ __('body.view_more') }}</h2>
-                                        </a>
-                                    </header>
+
                                     <dl class="w-100">
                                         <dt>{{ $cityStatistics['one_room_count']->average_count ?? 0 }} {{ __('body.one_bedroom_apartments') }}</dt>
                                         <dd>
@@ -74,6 +70,9 @@
                                             {{ __('body.average_price') }} {{ $cityStatistics['four_room_count']->av_price ?? 0 }}
                                         </dd>
                                     </dl>
+                                    <a class="link-arrow" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['city']->slug]) }}">
+                                        {{ __('body.view_more') }}
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
