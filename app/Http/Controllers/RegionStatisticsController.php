@@ -10,11 +10,9 @@ use Illuminate\Support\Facades\Cache;
 
 class RegionStatisticsController extends Controller
 {
-    protected ApartmentStatisticsService $aSS;
 
-    public function __construct(ApartmentStatisticsService $apartmentStatisticsService)
+    public function __construct(public ApartmentStatisticsService $aSS)
     {
-        $this->aSS = $apartmentStatisticsService;
     }
 
     public function show(Request $request, string $regionSlug)

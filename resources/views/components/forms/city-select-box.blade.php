@@ -11,3 +11,13 @@
         @endforeach
     </select>
 </div>
+<ul class="sidebar-navigation">
+    @foreach ($regions->where('slug', $regionSlug)->first()->cities as $city)
+        <li>
+            <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $city->slug]) }}">
+                <i class="fa fa-home"></i>
+                <span>{{ $city->name }}</span>
+            </a>
+        </li>
+    @endforeach
+</ul>

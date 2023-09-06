@@ -20,24 +20,12 @@
                     <aside id="edit-search" class="m-b-20">
                         <x-forms.city-select-box :regionSlug="$regionSlug"/>
                     </aside>
-                    <aside>
-                        <ul class="sidebar-navigation">
-                            @foreach ($regions->where('slug', $regionSlug)->first()->cities as $city)
-                            <li>
-                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $city->slug]) }}">
-                                    <i class="fa fa-home"></i>
-                                    <span>{{ $city->name }}</span>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </aside>
                 </section>
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="fun-facts" class="counting-numbers">
                     <header><h1>{{ __('body.select_city') }} {{ $lastStatisticalDate }}</h1></header>
-                    <div class="row fun-facts">
+                    <div class="fun-facts">
                         @foreach ($statisticalData['aggregatedData'] as $cityStatistics)
                             <div class="agency" >
                                 <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['city']->slug]) }}" class="agency-image v-align-top">
