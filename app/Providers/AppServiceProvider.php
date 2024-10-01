@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Helpers\StringHelper;
 use App\Models\Region;
 use App\Services\ApartmentStatisticsService;
 use App\View\Components\Forms\SearchBox;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
+            $currentDate = Carbon::now();
+            $formattedDate = $currentDate->addMonths(-1)->format('Y-m');
+
             $regions = Cache::remember('regions_with', null, function () {
                 return Region::with(['cities' => function ($query) {
                     $query->select('id', 'slug', 'name', 'region_id');
@@ -37,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
                     ->get();
             });
             $view->with('regions', $regions);
+            $view->with('currentDate', $formattedDate);
+            $view->with('currentDateHumanFormat', StringHelper::currentDateHumanFormat($currentDate));
         });
     }
 }

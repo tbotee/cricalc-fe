@@ -1429,7 +1429,7 @@ ul.list-links li a:hover {
   background-color: rgba(0, 0, 0, 0.07);
   bottom: 0;
   content: "";
-  height: 2px;
+  height: 22px;
   left: 0;
   margin: auto;
   position: absolute;
@@ -2599,6 +2599,10 @@ ul.list-links li a:hover {
   margin-bottom: 5px;
   position: relative;
 }
+#sidebar .sidebar-navigation.thinner > li {
+    margin-bottom: 0;
+}
+
 #sidebar .sidebar-navigation > li a {
   border-right: 3px solid transparent;
   color: #2a2a2a;
@@ -2606,6 +2610,11 @@ ul.list-links li a:hover {
   padding: 10px 0 10px 10px;
   position: relative;
 }
+
+#sidebar .sidebar-navigation.thinner > li a {
+
+}
+
 #sidebar .sidebar-navigation > li a:after {
   -moz-transition: 0.4s;
   -webkit-transition: 0.4s;

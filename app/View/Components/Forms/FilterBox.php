@@ -2,13 +2,13 @@
 
 namespace App\View\Components\Forms;
 
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class CitySelectBox extends Component
+class FilterBox  extends Component
 {
-    public function __construct(public string $regionSlug)
+
+    public function __construct(public string $date)
     {
     }
 
@@ -22,8 +22,7 @@ class CitySelectBox extends Component
             $years[] = $year;
         }
 
-        return view('components.forms.city-select-box', [
-            'regionSlug' => $this->regionSlug,
+        return view('components.forms.filter-box', [
             'years' => $years
         ]);
     }

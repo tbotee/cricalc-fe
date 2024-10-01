@@ -1924,6 +1924,9 @@ ul.list-links li a:hover {
   width: 100%;
   z-index: -2;
 }
+.fun-facts.no-line:before {
+    height: 0;
+}
 .fun-facts .number-wrapper {
   text-align: center;
 }
@@ -4989,7 +4992,24 @@ body, html {
     width: 100%;
 }
 
+.mb-0 {
+    margin-bottom: 0 !important;
+}
 
+.flex-column {
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+.justify-content-between {
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+
+.align-items-stretch {
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+}
 
 /* 7. Responsive */
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\StringHelper;
 use App\Models\Region;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -22,6 +24,7 @@ class WelcomeController extends Controller
             'regionSlug' => $request->input('region'),
             'locationSlug' => $city ?? null,
             'numberOfRooms' => $numberOfRooms ?? null,
+            'date' => StringHelper::currentDateHumanFormat(Carbon::now()->addMonths(-1))
         ];
 
         $route = 'region.show';

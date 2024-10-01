@@ -13,15 +13,10 @@ class ApartmentStatisticsService
 
     public function getStatistics(array $post): array
     {
-        switch ($post['groupBy']) {
-            case 'day':
-                return $this->getReportByDay($post);
-            case 'week':
-                return $this->getReportByGroup($post, 'week');
-            case 'month':
-                return $this->getReportByGroup($post, 'month');
-            case 'year':
-                return $this->getReportByGroup($post, 'year');
+        if ($post['groupBy'] === 'day') {
+            return $this->getReportByDay($post);
+        } else {
+            return $this->getReportByGroup($post, $post['groupBy']);
         }
     }
 
@@ -125,5 +120,16 @@ class ApartmentStatisticsService
             ->where('category_id', $category)
             ->where('city_id', $cityId)
             ->first();
+    }
+
+    public function getApartmentCountForRegion(Carbon $startDate, Carbon $endDate, array $categoryIds, array $cityIds): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array
+    {
+        return ProductStatistic::where('created_at', '>=', new Carbon($startDate))
+            ->with('city', 'city.region')
+            ->where('created_at', '<=', new Carbon($endDate))
+            ->whereIn('category_id', $categoryIds)
+            ->whereIn('city_id', $cityIds)
+            //->orderBy('count', 'desc')
+            ->get();
     }
 }

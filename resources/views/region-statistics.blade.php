@@ -7,9 +7,8 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Account</a></li>
-            <li class="active">Profile</li>
+            <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a></li>
+            <li class="active">{{ __('body.region_string_plus_name', ['region' => $region->name]) }}</li>
         </ol>
     </div>
 
@@ -23,42 +22,35 @@
                 </section>
             </div>
             <div class="col-md-9 col-sm-10">
-                <section id="fun-facts" class="counting-numbers">
-                    <header><h1>{{ __('body.select_city') }} {{ $lastStatisticalDate }}</h1></header>
-                    <div class="fun-facts">
-                        @foreach ($statisticalData['aggregatedData'] as $cityStatistics)
+                <section id="agencies-listing">
+                    <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth]) }} </h1></header>
+
+{{--                    <x-forms.filter-box :date="$currentDate" />--}}
+
+                    <div class="fun-facts no-line">
+                        @foreach ($data as $cityStatistics)
                             <div class="agency" >
-                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['city']->slug]) }}" class="agency-image v-align-top">
+                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">
                                     <div class="number-wrapper">
-                                        <h2 class="text-center no-margin">{{ $cityStatistics['city']->name }}</h2>
+                                        <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
                                         <h3 class="text-center no-margin"></h3>
-                                        <div class="number" data-from="1" data-to="{{ $cityStatistics['total_count'] }}">
-                                            {{ $cityStatistics['total_count'] }}
+                                        <div class="number" data-from="1" data-to="{{ $cityStatistics['total'] }}">
+                                            {{ $cityStatistics['total'] }}
                                         </div>
                                         <figure>{{ __('body.apartment_count') }}</figure>
                                     </div>
                                 </a>
                                 <div class="wrapper">
-
                                     <dl class="w-100">
-                                        <dt>{{ $cityStatistics['one_room_count']->average_count ?? 0 }} {{ __('body.one_bedroom_apartments') }}</dt>
-                                        <dd>
-                                            {{ __('body.average_price') }} {{ $cityStatistics['one_room_count']->av_price ?? 0 }}
-                                        </dd>
-                                        <dt>{{ $cityStatistics['two_room_count']->average_count ?? 0 }} {{ __('body.two_room_apartments') }}</dt>
-                                        <dd>
-                                            {{ __('body.average_price') }} {{ $cityStatistics['two_room_count']->av_price ?? 0 }}
-                                        </dd>
-                                        <dt>{{ $cityStatistics['three_room_count']->average_count ?? 0 }} {{ __('body.three_bedroom_apartments') }}</dt>
-                                        <dd>
-                                            {{ __('body.average_price') }} {{ $cityStatistics['three_room_count']->av_price ?? 0 }}
-                                        </dd>
-                                        <dt>{{ $cityStatistics['four_room_count']->average_count ?? 0 }} {{ __('body.four_bedroom_apartments') }}</dt>
-                                        <dd>
-                                            {{ __('body.average_price') }} {{ $cityStatistics['four_room_count']->av_price ?? 0 }}
-                                        </dd>
+                                        @foreach ($cityStatistics['items'] as $item)
+                                            <dt>{{ $item['count'] }} {{__('body.aratmament_cu_x_camere', ['room_count' => array_search($item['category_id'], $categoryMapping)]) }} </dt>
+                                            <dd>
+{{--                                                {{ __('body.average_price') }}--}}
+                                                €{{ number_format($item['average_price_with_outliners'], 0, ',', '.') }}
+                                            </dd>
+                                        @endforeach
                                     </dl>
-                                    <a class="link-arrow" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['city']->slug]) }}">
+                                    <a class="btn pull-right btn-default" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}">
                                         {{ __('body.view_more') }}
                                     </a>
                                 </div>
@@ -70,12 +62,12 @@
         </div>
     </div>
 
-    @if ($setSelectedRegion)
-        <script>
-            const regionSlug = @json($regionSlug);
-            localStorage.setItem('searchRegionSelect', regionSlug);
-            localStorage.removeItem("searchLocationSelect");
-        </script>
-    @endif
+{{--    @if ($setSelectedRegion)--}}
+{{--        <script>--}}
+{{--            const regionSlug = @json($regionSlug);--}}
+{{--            localStorage.setItem('searchRegionSelect', regionSlug);--}}
+{{--            localStorage.removeItem("searchLocationSelect");--}}
+{{--        </script>--}}
+{{--    @endif--}}
 
 @endsection

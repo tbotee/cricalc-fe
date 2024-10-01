@@ -6,7 +6,7 @@
 >
     @csrf
     @if ($showTitle)
-        <h2>{{ __('apartment.apartment_statistics') }}</h2>
+        <h2>{{ __('body.apartment_statistics') }}</h2>
     @endif
     <input type="hidden" id="regionsArray" value="{{ json_encode($regions->toArray()) }}">
     <div class="form-group">
@@ -17,11 +17,11 @@
             @endforeach
         </select>
     </div>
-    <div class="form-group">
-        <select name="city" id="searchLocationSelect">
-            <option value="">{{ __('apartment.city') }}</option>
-        </select>
-    </div>
+{{--    <div class="form-group">--}}
+{{--        <select name="city" id="searchLocationSelect">--}}
+{{--            <option value="">{{ __('apartment.city') }}</option>--}}
+{{--        </select>--}}
+{{--    </div>--}}
 {{--    <div class="form-group">--}}
 {{--        <select name="numberOfRooms" id="roomNumber">--}}
 {{--            <option value="">{{ __('apartment.type') }}</option>--}}

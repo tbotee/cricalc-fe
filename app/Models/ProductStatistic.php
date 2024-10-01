@@ -15,4 +15,9 @@ class ProductStatistic extends Model
     protected $protected = [
         'id'
     ];
+
+    public function city(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\StringHelper;
 use App\Models\Region;
 use App\Services\ApartmentStatisticsService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class RegionStatisticsController extends Controller
 {
@@ -15,74 +15,67 @@ class RegionStatisticsController extends Controller
     {
     }
 
-    public function show(Request $request, string $regionSlug)
+    public function showByDate(string $regionSlug, string $date)
     {
-        $region = Region::with('cities')
-            ->where('slug', $regionSlug)
-            ->first();
-
-        $regionCityIds = $region->cities
-            ->pluck('id')
-            ->toArray();
-
-        $lastStatisticalDate = $this->aSS->getLastStatisticalDate($regionCityIds);
-
-        $isOldDate = Carbon::now()->format('Y-m') != $lastStatisticalDate->format('Y-m');
-
-        $sortedCities = $region->cities->sortBy('name');
-
-        $startDate = $lastStatisticalDate->copy()->startOfMonth()->format('Y-m-d');
-        $endDate = $lastStatisticalDate->format('Y-m-d');
+        $region = $this->getRegion($regionSlug);
+        $startDate = StringHelper::currentDateFormHumanFormat($date);
+        list($result, $total) = $this->getRegionData($startDate, $region->cities->pluck('id')->toArray());
 
         return view('region-statistics', [
-            'setSelectedRegion' => true,
+            'data' => $result,
+            'total' => $total,
             'regionSlug' => $regionSlug,
-            'lastStatisticalDate' => $lastStatisticalDate,
-            'statisticalData' => Cache::remember(
-                $regionSlug . '_regions_' . $startDate . '-' . $endDate,
-                $isOldDate ? null : 1440,
-                function () use ($sortedCities, $startDate, $endDate) {
-                    $statistics = ['aggregatedData' => []];
-                    foreach ($sortedCities as $city) {
-                        $res = array(
-                            'city' => $city,
-                            'one_room_count' => $this->aSS->getApartmentCount(
-                                $startDate,
-                                $endDate,
-                                config('constants.category_mapping')[1],
-                                $city->id
-                            ),
-                            'two_room_count' => $this->aSS->getApartmentCount(
-                                $startDate,
-                                $endDate,
-                                config('constants.category_mapping')[2],
-                                $city->id
-                            ),
-                            'three_room_count' => $this->aSS->getApartmentCount(
-                                $startDate,
-                                $endDate,
-                                config('constants.category_mapping')[3],
-                                $city->id
-                            ),
-                            'four_room_count' => $this->aSS->getApartmentCount(
-                                $startDate,
-                                $endDate,
-                                config('constants.category_mapping')[4],
-                                $city->id
-                            )
-                        );
-                        $res['total_count'] = $res['one_room_count']->average_count +
-                            $res['two_room_count']->average_count +
-                            $res['three_room_count']->average_count +
-                            $res['four_room_count']->average_count;
-                        $statistics['aggregatedData'][] = $res;
-                    }
-                    return $statistics;
-                }),
+            'dateYear' => explode('-', $date)[0],
+            'dateMonth' => explode('-', $date)[1],
+            'region' => $region,
+            'categoryMapping' => config('constants.category_mapping')
         ]);
     }
     public function show_by_room_number(Request $request, string $regionSlug)
     {
         return view('region-statistics');
+    }
+
+    private function getRegionData(Carbon $startDate, array $sortedCities): array
+    {
+        $regionData = $this->aSS->getApartmentCountForRegion(
+            $startDate,
+            $startDate->copy()->endOfMonth(),
+            config('constants.category_mapping'),
+            $sortedCities
+        );
+
+        $result = [];
+        $total = 0;
+        foreach ($regionData as $data) {
+            if (!array_key_exists('city-' . $data->city->id, $result)) {
+                $result['city-' . $data->city->id] = [
+                    'items' => [],
+                    'total' => 0,
+                    'citySlug' => $data->city->slug,
+                    'cityName' => $data->city->name,
+                ];
+            }
+            $result['city-' . $data->city->id]['items'][] = $data;
+            $result['city-' . $data->city->id]['total'] += $data->count;
+        }
+        $resultArray = array_values($result);
+        usort($resultArray, function($a, $b) {
+            return $b['total'] <=> $a['total'];
+        });
+
+        $result = [];
+        foreach ($resultArray as $cityData) {
+            $result['city-' . $cityData['citySlug']] = $cityData;
+        }
+
+        return array($result, $total);
+    }
+
+    private function getRegion(string $regionSlug): Region
+    {
+        return Region::with('cities')
+            ->where('slug', $regionSlug)
+            ->first();
     }
 }

@@ -303,7 +303,8 @@ $(document).ready(function($) {
 
     centerSearchBox();
 
-    $('#home-search-form').on('submit', function(event) {
+    let $homeSearch = $('#home-search-form');
+    $homeSearch.on('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
         var $form = $(this);
         var selectedValue = $('#searchRegionSelect').val();
@@ -314,7 +315,7 @@ $(document).ready(function($) {
         }
     });
 
-    $('#home-search-form').on('change', function(event) {
+    $homeSearch.on('change', function(event) {
         var selectedValue = $('#searchRegionSelect').val();
         if (selectedValue) {
             $('button[data-id="searchRegionSelect"]').removeClass('is-invalid');
@@ -745,28 +746,28 @@ function drawFooterThumbnails(){
     });
 }
 
-function restoreLocation(regions) {
-    if (document.getElementById('searchRegionSelect') && document.getElementById('searchLocationSelect')) {
-        const regionID = document.getElementById('searchRegionSelect').value;
-        const region = regions.find(x => x.slug == regionID);
-        let dropdown = document.getElementById('searchLocationSelect');
-        dropdown.innerHTML = '';
-
-        let option = document.createElement("option");
-        option.value = '';
-        option.innerText = 'Select City';
-        dropdown.append(option);
-        if (region) {
-            region.cities.forEach(function (city) {
-                let option = document.createElement("option");
-                option.value = city.slug;
-                option.innerText = city.name;
-                dropdown.append(option)
-            });
-        }
-        $('#searchLocationSelect').selectpicker('refresh');
-    }
-}
+// function restoreLocation(regions) {
+//     if (document.getElementById('searchRegionSelect') && document.getElementById('searchLocationSelect')) {
+//         const regionID = document.getElementById('searchRegionSelect').value;
+//         const region = regions.find(x => x.slug == regionID);
+//         let dropdown = document.getElementById('searchLocationSelect');
+//         dropdown.innerHTML = '';
+//
+//         let option = document.createElement("option");
+//         option.value = '';
+//         option.innerText = 'Select City';
+//         dropdown.append(option);
+//         if (region) {
+//             region.cities.forEach(function (city) {
+//                 let option = document.createElement("option");
+//                 option.value = city.slug;
+//                 option.innerText = city.name;
+//                 dropdown.append(option)
+//             });
+//         }
+//         $('#searchLocationSelect').selectpicker('refresh');
+//     }
+// }
 
 function restoreSelect(id, defValue) {
     const element = document.getElementById(id);
@@ -784,7 +785,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
         if (document.getElementById('searchRegionSelect')) {
             restoreSelect('searchRegionSelect', 1);
-            restoreLocation(regions);
+            //restoreLocation(regions);
             restoreSelect('searchLocationSelect');
             restoreSelect('roomNumber');
         }
@@ -793,7 +794,7 @@ window.addEventListener('DOMContentLoaded', event => {
             document.getElementById('searchRegionSelect').onchange = function(event) {
                 localStorage.setItem('searchRegionSelect', event.target.value);
                 localStorage.removeItem("searchLocationSelect");
-                restoreLocation(regions);
+                //restoreLocation(regions);
             }
         }
 

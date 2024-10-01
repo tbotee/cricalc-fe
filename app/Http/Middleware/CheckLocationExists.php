@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\City;
 use App\Models\Region;
+use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,7 @@ class CheckLocationExists
         $this->checkRegion($request);
         $this->checkLocation($request);
         $this->checkNrOfRooms($request);
+        $this->checkDate($request);
 
         return $next($request);
     }
@@ -54,5 +56,21 @@ class CheckLocationExists
                 abort(404);
             }
         }
+    }
+
+    private function checkDate(Request $request)
+    {
+        $date = $request->route('date');
+        if ($date) {
+            if (!$this->isValidDate($date)) {
+                abort(404);
+            }
+        }
+    }
+
+    function isValidDate($dateString): bool
+    {
+        $pattern = '/^\d{4}-(ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|decembrie)$/i';
+        return (bool)preg_match($pattern, $dateString);
     }
 }

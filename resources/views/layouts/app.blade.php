@@ -36,26 +36,27 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a>
                         </li>
-                        <li class="has-child"><a href="#">{{ __('menu.apartments') }}</a>
-                            <ul class="child-navigation">
-                                @foreach ($regions as $region)
-                                    <li class="has-child"><a href="#">{{ $region->name }}</a>
-                                        <ul class="child-navigation">
-                                            @foreach ($region->cities as $city)
-                                                <li><a href="#">{{ $city->name }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="has-child"><a href="#">Blog</a>
-                            <ul class="child-navigation">
-                                <li><a href="#">Blog Listing</a></li>
-                                <li><a href="#">Blog Post Detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Contact</a></li>
+{{--                        <li class="has-child"><a href="#">{{ __('menu.apartments') }}</a>--}}
+{{--                            <ul class="child-navigation">--}}
+{{--                                @foreach ($regions as $region)--}}
+{{--                                    <li class="has-child"><a href="#">{{ $region->name }}</a>--}}
+{{--                                        <ul class="child-navigation">--}}
+{{--                                            @foreach ($region->cities as $city)--}}
+{{--                                                <li><a href="#">{{ $city->name }}</a></li>--}}
+{{--                                            @endforeach--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                        <li class="has-child"><a href="#">Blog</a>--}}
+{{--                            <ul class="child-navigation">--}}
+{{--                                <li><a href="#">Blog Listing</a></li>--}}
+{{--                                <li><a href="#">Blog Post Detail</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+                        <li><a href="{{ route('about_us') }}">{{ __('menu.about_us') }}</a>
+                        <li><a href="{{ route('contact_us') }}">{{ __('menu.contact_us') }}</a>
                     </ul>
                 </nav>
             </header>
@@ -75,7 +76,7 @@
                         <div class="col-md-3 col-sm-3">
                             <article>
                                 <h3>About Us</h3>
-                                <p>At RealEstateStats Romania, we are your one-stop destination for accurate and up-to-date real estate price information across the beautiful regions of Romania. Our platform is dedicated to providing you with comprehensive insights into property prices in various cities and regions, enabling you to make informed decisions when it comes to buying or selling real estate.
+                                <p>La RealEstateStats România, suntem destinația dvs. unică pentru informații precise și actualizate despre prețurile imobiliare din frumoasele regiuni ale României. Platforma noastră este dedicată să vă ofere informații complete despre prețurile proprietăților din diferite orașe și regiuni, permițându-vă să luați decizii informate atunci când vine vorba de cumpărarea sau vânzarea de bunuri imobiliare.
                                 </p>
                                 <hr>
                                 <a href="#" class="link-arrow">{{ __('body.read_more') }}</a>
@@ -95,7 +96,7 @@
                                     <ul class="list-unstyled list-links">
                                     @foreach($chunk as $region)
                                             <li>
-                                                <a href="{{ route('region.show', ['regionSlug' => $region['slug']]) }}">
+                                                <a href="{{ route('region.show', ['regionSlug' => $region['slug'], 'date' => $currentDateHumanFormat]) }}">
                                                     {{ $region['name'] }}
                                                 </a>
                                             </li>

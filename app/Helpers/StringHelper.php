@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class StringHelper
@@ -19,5 +20,27 @@ class StringHelper
         $text = Str::ascii($text);
         $text = str_replace(' ', '-', $text);
         return preg_replace('/-+/', '-', $text);
+    }
+
+    public static function currentDateHumanFormat(Carbon $formattedDate): string
+    {
+        $monthNames = [
+            'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie',
+            'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'
+        ];
+        $year = $formattedDate->format('Y');
+        $month = $formattedDate->format('n');
+        return $year . '-' . $monthNames[$month - 1];
+    }
+
+    public static function currentDateFormHumanFormat(string $dateSlug): Carbon
+    {
+        $monthNames = [
+            'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie',
+            'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'
+        ];
+        list ($year, $month) = explode('-', $dateSlug);
+        $index = array_search($month, $monthNames);
+        return Carbon::createFromDate((int) $year, $index + 1, 1);
     }
 }

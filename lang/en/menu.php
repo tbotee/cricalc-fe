@@ -1,8 +1,7 @@
 <?php
 
 return [
-
-    'home' => 'Home',
-    'apartments' => 'Apartments',
-
+    'home' => 'Acasa',
+    'about_us' => 'Apartments',
+    'contact_us' => 'Apartments',
 ];

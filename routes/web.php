@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LocationStatisticsController;
 use App\Http\Controllers\RegionStatisticsController;
 use App\Http\Controllers\WelcomeController;
@@ -23,6 +25,10 @@ Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}', [RegionStatisticsC
     ->name('region.show')
     ->middleware('check.location');
 
+Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}/{date}', [RegionStatisticsController::class, 'showByDate'])
+    ->name('region.show')
+    ->middleware('check.location');
+
 Route::get('/preturi-apartamentelor/{numberOfRooms}/in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show_by_room_number'])
     ->name('region.show_by_room_number')
     ->middleware('check.location');
@@ -34,3 +40,9 @@ Route::get('/preturile-apartamentelor/{locationSlug}/judetul/{regionSlug}/', [Lo
 Route::get('/preturile-apartamentelor/{numberOfRooms}/{locationSlug}/judetul/{regionSlug}/', [LocationStatisticsController::class, 'show_by_room_number'])
     ->name('location.show_by_room_number')
     ->middleware('check.location');
+
+Route::get('/despre-noi', [AboutUsController::class, 'show'])
+    ->name('about_us');
+
+Route::get('/contact', [ContactUsController::class, 'show'])
+    ->name('contact_us');
