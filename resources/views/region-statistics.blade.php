@@ -25,34 +25,33 @@
                 <section id="agencies-listing">
                     <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth]) }} </h1></header>
 
-{{--                    <x-forms.filter-box :date="$currentDate" />--}}
-
                     <div class="fun-facts no-line">
                         @foreach ($data as $cityStatistics)
                             <div class="agency" >
-                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">
-                                    <div class="number-wrapper">
-                                        <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
-                                        <h3 class="text-center no-margin"></h3>
-                                        <div class="number" data-from="1" data-to="{{ $cityStatistics['total'] }}">
-                                            {{ $cityStatistics['total'] }}
+{{--                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">--}}
+                                    <a class="agency-image v-align-top" href="javascript:void(0);">
+                                        <div class="number-wrapper">
+                                            <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
+                                            <h3 class="text-center no-margin"></h3>
+                                            <div class="number" data-from="1" data-to="{{ $cityStatistics['total'] }}">
+                                                {{ $cityStatistics['total'] }}
+                                            </div>
+                                            <figure>{{ __('body.apartment_count') }}</figure>
                                         </div>
-                                        <figure>{{ __('body.apartment_count') }}</figure>
-                                    </div>
-                                </a>
+                                    </a>
+{{--                                </a>--}}
                                 <div class="wrapper">
                                     <dl class="w-100">
                                         @foreach ($cityStatistics['items'] as $item)
                                             <dt>{{ $item['count'] }} {{__('body.aratmament_cu_x_camere', ['room_count' => array_search($item['category_id'], $categoryMapping)]) }} </dt>
                                             <dd>
-{{--                                                {{ __('body.average_price') }}--}}
-                                                €{{ number_format($item['average_price_with_outliners'], 0, ',', '.') }}
+                                                €{{ number_format($item['average_price'], 0, ',', '.') }}
                                             </dd>
                                         @endforeach
                                     </dl>
-                                    <a class="btn pull-right btn-default" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}">
-                                        {{ __('body.view_more') }}
-                                    </a>
+{{--                                    <a class="btn pull-right btn-default" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}">--}}
+{{--                                        {{ __('body.details') }}--}}
+{{--                                    </a>--}}
                                 </div>
                             </div>
                         @endforeach

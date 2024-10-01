@@ -29,7 +29,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand nav" id="brand">
-                        <a href="#"><img src="{{ asset('img/logo.png') }}" alt="brand"></a>
+                        <a href="{{ route('welcome') }}"><img src="{{ asset('img/logo.png') }}" alt="brand"></a>
                     </div>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3">
                             <article>
-                                <h3>About Us</h3>
+                                <h3>{{ __('menu.about_us') }}</h3>
                                 <p>La RealEstateStats România, suntem destinația dvs. unică pentru informații precise și actualizate despre prețurile imobiliare din frumoasele regiuni ale României. Platforma noastră este dedicată să vă ofere informații complete despre prețurile proprietăților din diferite orașe și regiuni, permițându-vă să luați decizii informate atunci când vine vorba de cumpărarea sau vânzarea de bunuri imobiliare.
                                 </p>
                                 <hr>

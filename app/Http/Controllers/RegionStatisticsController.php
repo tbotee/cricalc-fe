@@ -59,6 +59,8 @@ class RegionStatisticsController extends Controller
             $result['city-' . $data->city->id]['items'][] = $data;
             $result['city-' . $data->city->id]['total'] += $data->count;
         }
+
+
         $resultArray = array_values($result);
         usort($resultArray, function($a, $b) {
             return $b['total'] <=> $a['total'];

@@ -2,6 +2,6 @@
 
 return [
     'home' => 'Acasa',
-    'about_us' => 'Apartments',
-    'contact_us' => 'Apartments',
+    'about_us' => 'Despre Noi',
+    'contact_us' => 'Contact',
 ];

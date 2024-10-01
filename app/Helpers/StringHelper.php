@@ -11,8 +11,8 @@ class StringHelper
     {
         $text = mb_strtolower($text);
         $text = str_replace(
-            ['ă', 'â', 'î', 'ș', 'ț', 'î'],
-            ['a', 'a', 'i', 's', 't', 'i'],
+            ['ă', 'â', 'î', 'ș', 'ț', 'î', 'ş'],
+            ['a', 'a', 'i', 's', 't', 'i', 's'],
             $text
         );
         $text = preg_replace('/[^\w]+/', '-', $text);
