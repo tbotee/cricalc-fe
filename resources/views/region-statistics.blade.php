@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('meta.title_region_statistics', ['region' =>  $region->name]))
+@section('meta_description', __('meta.meta_description_region_statistics', ['region' =>  $region->name]))
+@section('meta_keywords', __('meta.meta_keywords_region_statistics', ['region' => $region->name]))
+
 @section('bodyProps')
     class="page-sub-page page-profile page-account" id="page-top"
 @endsection
@@ -24,7 +28,7 @@
             <div class="col-md-9 col-sm-10">
                 <section id="agencies-listing">
                     <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth]) }} </h1></header>
-
+                    <p>{{ __('meta.meta_description_region_statistics', ['region' => $region->name]) }}</p>
                     <div class="fun-facts no-line">
                         @foreach ($data as $cityStatistics)
                             <div class="agency" >
