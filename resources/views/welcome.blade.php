@@ -24,7 +24,7 @@
                             </div>
                             <hr>
                             <a href="{{ route('region.show', ['regionSlug' => $cityStatistics->city->region->slug, 'date' => $currentDateHumanFormat]) }}"
-                               class="link-arrow">Read More</a>
+                               class="link-arrow">{{ __('body.read_more')  }}</a>
                         </div>
                     </div>
                     <img alt="" src="{{ asset('img/custom-slide-' . ($index). '.jpg') }}">
