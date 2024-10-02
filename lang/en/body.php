@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "site_name" => "SiteName",
     "region_page_title" => 'Statisticiile din :month :year',
     "region_string_plus_name" => 'Judetul :region',
     "apartment_count" => 'apartamente de vânzare',
@@ -18,4 +19,9 @@ return [
     'cheapest_cities_with_x_rooms' => "Cele mai ieftine orase cu apartamente cu :room_count camere",
     'cheapest_cities_with_1_rooms' => "Cele mai ieftine orase cu garsoninere",
     'city_name_region_name' => ":city, judetul :region",
+    'serving_since' => "Servim date del la 2022",
+    'fun_facts' => "Fun Facts",
+    'nr_of_cities_listed' => "Numarul oraselor listate",
+    'nr_of_statistics' => "Numarul statisticelor",
+    'since_year' => "De la anul",
 ];
