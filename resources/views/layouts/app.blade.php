@@ -95,7 +95,7 @@
                                     <ul class="list-unstyled list-links">
                                     @foreach($chunk as $region)
                                             <li>
-                                                <a href="{{ route('region.show', ['regionSlug' => $region['slug'], 'date' => $currentDateHumanFormat]) }}">
+                                                <a href="{{ route('region.show', ['regionSlug' => $region['slug']]) }}">
                                                     {{ $region['name'] }}
                                                 </a>
                                             </li>

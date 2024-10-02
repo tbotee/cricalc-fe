@@ -143,4 +143,20 @@ class ApartmentStatisticsService
             ->limit(3)
             ->get();
     }
+
+    public function getHistoryLinks(Carbon $startDate, array $cityIds, array $categoryIds)
+    {
+        return ProductStatistic::where('created_at', '<=', $startDate)
+            ->select(
+                DB::raw('MAX(created_at) as created_at'),
+                DB::raw('DATE_FORMAT(created_at, "%Y-%m") as formated_created_at')
+            )
+            ->whereIn('category_id', $categoryIds)
+            ->whereIn('city_id', $cityIds)
+            ->groupBy('formated_created_at')
+            ->orderBy('formated_created_at', 'DESC')
+            ->limit(4)
+            ->get();
+
+    }
 }

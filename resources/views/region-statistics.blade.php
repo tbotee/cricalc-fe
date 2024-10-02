@@ -23,7 +23,23 @@
                     <aside id="edit-search" class="m-b-20">
                         <x-forms.city-select-box :regionSlug="$regionSlug"/>
                     </aside>
-
+                    <aside>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ __('body.date_year_selector', ['year' => $dateYear, 'month' => ucfirst($dateMonth)] ) }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="about-us">
+                                @foreach($history as $date)
+                                    <li>
+                                        <a href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $date->dateSlug]) }}">
+                                            {{ __('body.date_year_selector', ['year' => $date->created_at->year, 'month' => ucfirst($date->month)] ) }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </aside>
                     <aside>
                         <x-your-ad-here class="vertical"/>
                     </aside>
@@ -32,7 +48,7 @@
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="agencies-listing">
-                    <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth]) }} </h1></header>
+                    <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth, 'region' => $region->name]) }} </h1></header>
                     <p>{{ __('meta.meta_description_region_statistics', ['region' => $region->name]) }}</p>
                     <div class="fun-facts no-line">
                         @foreach ($data as $cityStatistics)

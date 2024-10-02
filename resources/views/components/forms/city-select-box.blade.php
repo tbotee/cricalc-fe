@@ -20,11 +20,11 @@
 {{--    {{ __('body.select_city') }}--}}
 {{--</label>--}}
 
-{{--@php--}}
-{{--    $region = $regions->first(function ($region) use ($regionSlug) {--}}
-{{--            return $region->slug === $regionSlug;--}}
-{{--        });--}}
-{{--@endphp--}}
+@php
+    $region = $regions->first(function ($region) use ($regionSlug) {
+            return $region->slug === $regionSlug;
+        });
+@endphp
 
 {{--<ul class="sidebar-navigation">--}}
 {{--    @foreach ($region->cities as $city)--}}
@@ -37,3 +37,14 @@
 {{--        </li>--}}
 {{--    @endforeach--}}
 {{--</ul>--}}
+{{--<div class="dropdown">--}}
+{{--    <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--        About Us--}}
+{{--        <span class="caret"></span>--}}
+{{--    </button>--}}
+{{--    <ul class="dropdown-menu" aria-labelledby="about-us">--}}
+{{--        <li><a href="#">Our Story</a></li>--}}
+{{--        <li><a href="#">Our Team</a></li>--}}
+{{--        <li><a href="#">Contact Us</a></li>--}}
+{{--    </ul>--}}
+{{--</div>--}}

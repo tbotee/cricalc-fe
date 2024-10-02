@@ -43,4 +43,14 @@ class StringHelper
         $index = array_search($month, $monthNames);
         return Carbon::createFromDate((int) $year, $index + 1, 1);
     }
+
+    public static function getHumanMonthFromDate(Carbon  $date): string
+    {
+        $monthNames = [
+            'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie',
+            'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'
+        ];
+
+        return $monthNames[$date->month - 1];
+    }
 }

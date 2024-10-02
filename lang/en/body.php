@@ -2,7 +2,7 @@
 
 return [
     "site_name" => "SiteName",
-    "region_page_title" => 'Statisticiile din :month :year',
+    "region_page_title" => 'Preturile apartamentelor in :month :year pentru judetul :region',
     "region_string_plus_name" => 'Judetul :region',
     "apartment_count" => 'apartamente de vânzare',
     "aratmament_cu_x_camere" => 'apartament(e) cu :room_count camere',
@@ -26,5 +26,6 @@ return [
     'since_year' => "De la anul",
     'privacy' => "Politica de Confidențialitate",
     'terms' => "Termeni și Condiții",
-    "your_ad_here" => "Anunțul tău aici"
+    "your_ad_here" => "Anunțul tău aici",
+    "date_year_selector" => ":month :year"
 ];

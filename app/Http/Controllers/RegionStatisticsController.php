@@ -15,11 +15,17 @@ class RegionStatisticsController extends Controller
     {
     }
 
-    public function showByDate(string $regionSlug, string $date)
+    public function showByDate(string $regionSlug, string $date = null)
     {
+        $date = $date ?? StringHelper::currentDateHumanFormat(Carbon::now()->startOfMonth()->addMonths(-1));
         $region = $this->getRegion($regionSlug);
         $startDate = StringHelper::currentDateFormHumanFormat($date);
         list($result, $total) = $this->getRegionData($startDate, $region->cities->pluck('id')->toArray());
+        $history = $this->aSS->getHistoryLinks($startDate, $region->cities->pluck('id')->toArray(), config('constants.category_mapping'));
+        foreach ($history as $item) {
+            $item->month = StringHelper::getHumanMonthFromDate($item->created_at);
+            $item->dateSlug = StringHelper::currentDateHumanFormat($item->created_at);
+        }
 
         return view('region-statistics', [
             'data' => $result,
@@ -27,7 +33,9 @@ class RegionStatisticsController extends Controller
             'regionSlug' => $regionSlug,
             'dateYear' => explode('-', $date)[0],
             'dateMonth' => explode('-', $date)[1],
-            'region' => $region
+            'region' => $region,
+            'history' => $history,
+            'currentDate' => $date
         ]);
     }
     public function show_by_room_number(Request $request, string $regionSlug)

@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::post('/', [WelcomeController::class, 'search'])->name('welcome.search');
 
-Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show'])
-    ->name('region.show')
-    ->middleware('check.location');
+//Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}', [RegionStatisticsController::class, 'show'])
+//    ->name('region.show')
+//    ->middleware('check.location');
 
-Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}/{date}', [RegionStatisticsController::class, 'showByDate'])
+Route::get('/preturi-apartamentelor-in-judetul/{regionSlug}/{date?}', [RegionStatisticsController::class, 'showByDate'])
     ->name('region.show')
     ->middleware('check.location');
 
