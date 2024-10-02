@@ -9,7 +9,7 @@
         @foreach ($regions as $region)
             <option
                 value="{{ $region->slug }}"
-                data-url="{{ route('region.show', ['regionSlug' => $region->slug, 'date' => $currentDateHumanFormat]) }}"
+                data-url="{{ route('region.show', ['regionSlug' => $region->slug]) }}"
                 @if($region->slug === $regionSlug) selected @endif
             >{{ $region->name }}</option>
         @endforeach
@@ -20,11 +20,11 @@
 {{--    {{ __('body.select_city') }}--}}
 {{--</label>--}}
 
-@php
-    $region = $regions->first(function ($region) use ($regionSlug) {
-            return $region->slug === $regionSlug;
-        });
-@endphp
+{{--@php--}}
+{{--    $region = $regions->first(function ($region) use ($regionSlug) {--}}
+{{--            return $region->slug === $regionSlug;--}}
+{{--        });--}}
+{{--@endphp--}}
 
 {{--<ul class="sidebar-navigation">--}}
 {{--    @foreach ($region->cities as $city)--}}

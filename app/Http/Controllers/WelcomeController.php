@@ -55,8 +55,7 @@ class WelcomeController extends Controller
         $parameters = [
             'regionSlug' => $request->input('region'),
             'locationSlug' => $city ?? null,
-            'numberOfRooms' => $numberOfRooms ?? null,
-            'date' => StringHelper::currentDateHumanFormat(Carbon::now()->addMonths(-1))
+            'numberOfRooms' => $numberOfRooms ?? null
         ];
 
         $route = 'region.show';
