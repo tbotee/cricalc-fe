@@ -63,17 +63,17 @@ $(document).ready(function($) {
 
 //  Contact form
 
-    $("#form-contact-submit").bind("click", function(event){
-        $("#form-contact").validate({
-            submitHandler: function() {
-                $.post("assets/php/contact.php", $("#form-contact").serialize(),  function(response) {
-                    $('#form-status').html(response);
-                    $('#form-contact-submit').attr('disabled','true');
-                });
-                return false;
-            }
-        });
-    });
+    // $("#form-contact-submit").bind("click", function(event){
+    //     $("#form-contact").validate({
+    //         submitHandler: function() {
+    //             $.post("assets/php/contact.php", $("#form-contact").serialize(),  function(response) {
+    //                 $('#form-status').html(response);
+    //                 $('#form-contact-submit').attr('disabled','true');
+    //             });
+    //             return false;
+    //         }
+    //     });
+    // });
 
 //  Fit videos width and height
 

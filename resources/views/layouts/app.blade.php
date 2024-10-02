@@ -34,7 +34,8 @@
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a>
+                        <li class="{{ Route::is('welcome') ? 'active' : '' }}">
+                            <a href="{{ route('welcome') }}">{{ __('menu.home') }}</a>
                         </li>
 {{--                        <li class="has-child"><a href="#">{{ __('menu.apartments') }}</a>--}}
 {{--                            <ul class="child-navigation">--}}
@@ -55,8 +56,13 @@
 {{--                                <li><a href="#">Blog Post Detail</a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-                        <li><a href="{{ route('about_us') }}">{{ __('menu.about_us') }}</a>
-                        <li><a href="{{ route('contact_us') }}">{{ __('menu.contact_us') }}</a>
+                        <li class="{{ Route::is('about_us') ? 'active' : '' }}">
+                            <a href="{{ route('about_us') }}">{{ __('menu.about_us') }}
+                            </a>
+                        </li>
+                        <li class="{{ Route::is('contact_us') ? 'active' : '' }}">
+                            <a href="{{ route('contact_us') }}">{{ __('menu.contact_us') }}</a>
+                        </li>
                     </ul>
                 </nav>
             </header>

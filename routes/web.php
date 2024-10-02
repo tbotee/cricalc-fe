@@ -46,6 +46,8 @@ Route::get('/despre-noi', [AboutUsController::class, 'show'])
 
 Route::get('/contact', [ContactUsController::class, 'show'])
     ->name('contact_us');
+Route::post('/contact', [ContactUsController::class, 'submit'])
+    ->name('contact_us.submit');
 
 Route::view('/politica-de-confidențialitate', 'privacy')->name('privacy');
 Route::view('/termeni-si-conditii', 'terms')->name('terms');

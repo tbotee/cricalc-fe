@@ -7,8 +7,8 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Contact Us</li>
+            <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a></li>
+            <li class="active">{{ __('menu.contact_us') }}</li>
         </ol>
     </div>
     <!-- end Breadcrumb -->
@@ -17,7 +17,7 @@
             <!-- Contact -->
             <div class="col-md-12 col-sm-12">
                 <section id="agent-detail">
-                    <header><h1>Contact</h1></header>
+                    <header><h1>{{ __('menu.contact_us') }}</h1></header>
                     <section id="contact-information">
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
@@ -34,32 +34,63 @@
                             </div><!-- /.col-md-4 -->
                             <div class="col-md-8 col-sm-7">
                                 <section id="form">
-                                    <header><h3>Send Us a Message</h3></header>
-                                    <form role="form" id="form-contact" method="post"  class="clearfix">
+                                    <header><h3>{{ __('contact.send_us_a_message') }}</h3></header>
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    <form action="{{ route('contact_us.submit') }}" role="form" id="form-contact" method="post"  class="clearfix">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="form-contact-name">Your Name<em>*</em></label>
-                                                    <input type="text" class="form-control" id="form-contact-name" name="form-contact-name" required>
+                                                    <label for="form-contact-name">{{ __('contact.your_name') }}<em>*</em></label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="form-contact-name"
+                                                        name="form-contact-name"
+                                                        value="{{ old('form-contact-name') }}"
+                                                        required>
+                                                    @error('name')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div><!-- /.form-group -->
                                             </div><!-- /.col-md-6 -->
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="form-contact-email">Your Email<em>*</em></label>
-                                                    <input type="email" class="form-control" id="form-contact-email" name="form-contact-email" required>
+                                                    <label for="form-contact-email">{{ __('contact.your_email') }}l<em>*</em></label>
+                                                    <input
+                                                        type="email"
+                                                        class="form-control" id="form-contact-email"
+                                                        name="form-contact-email" required
+                                                        value="{{ old('form-contact-email') }}"
+                                                    >
+                                                    @error('email')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div><!-- /.form-group -->
                                             </div><!-- /.col-md-6 -->
                                         </div><!-- /.row -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="form-contact-message">Your Message<em>*</em></label>
-                                                    <textarea class="form-control" id="form-contact-message" rows="8" name="form-contact-message" required></textarea>
+                                                    <label for="form-contact-message">{{ __('contact.your_message') }}<em>*</em></label>
+                                                    <textarea
+                                                        class="form-control"
+                                                        id="form-contact-message"
+                                                        rows="8"
+                                                        name="form-contact-message"
+                                                        required>{{ old('form-contact-message') }}</textarea>
+                                                    @error('message')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div><!-- /.form-group -->
                                             </div><!-- /.col-md-12 -->
                                         </div><!-- /.row -->
                                         <div class="form-group clearfix">
-                                            <button type="submit" class="btn pull-right btn-default" id="form-contact-submit">Send a Message</button>
+                                            <button type="submit" class="btn pull-right btn-default" id="form-contact-submit">{{ __('contact.send_email') }}</button>
                                         </div><!-- /.form-group -->
                                         <div id="form-status"></div>
                                     </form><!-- /#form-contact -->
