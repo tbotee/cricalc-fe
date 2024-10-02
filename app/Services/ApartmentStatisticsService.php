@@ -122,6 +122,7 @@ class ApartmentStatisticsService
             ->first();
     }
 
+    //todo rename this
     public function getApartmentCountForRegion(Carbon $startDate, Carbon $endDate, array $categoryIds, array $cityIds): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array
     {
         return ProductStatistic::where('created_at', '>=', new Carbon($startDate))
@@ -129,7 +130,17 @@ class ApartmentStatisticsService
             ->where('created_at', '<=', new Carbon($endDate))
             ->whereIn('category_id', $categoryIds)
             ->whereIn('city_id', $cityIds)
-            //->orderBy('count', 'desc')
+            ->get();
+    }
+
+    public function getCheapestCitiesForCategory(Carbon $startDate, Carbon $endDate, int $categoryId)
+    {
+        return ProductStatistic::where('created_at', '>=', new Carbon($startDate))
+            ->where('created_at', '<=', new Carbon($endDate))
+            ->where('category_id', $categoryId)
+            ->with('city', 'city.region')
+            ->orderBy('average_price', 'ASC')
+            ->limit(3)
             ->get();
     }
 }

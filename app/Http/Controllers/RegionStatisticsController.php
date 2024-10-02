@@ -27,8 +27,7 @@ class RegionStatisticsController extends Controller
             'regionSlug' => $regionSlug,
             'dateYear' => explode('-', $date)[0],
             'dateMonth' => explode('-', $date)[1],
-            'region' => $region,
-            'categoryMapping' => config('constants.category_mapping')
+            'region' => $region
         ]);
     }
     public function show_by_room_number(Request $request, string $regionSlug)

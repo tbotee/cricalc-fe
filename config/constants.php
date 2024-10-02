@@ -12,5 +12,13 @@ return [
         2 => 1165,
         3 => 1167,
         4 => 1169
+    ],
+    'cities' => [
+        'bucurest' => 1,
+        'cluj_napoca' => 82,
+        'iasi' => 158,
+        'constanta' => 88,
+        'timisoara' => 244,
+        'brasov' => 55
     ]
 ];

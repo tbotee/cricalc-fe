@@ -4636,12 +4636,12 @@ form label.error:before {
   -moz-transition: 0.4s;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  background-color: rgba(255, 255, 255, 0.3);
   padding: 5px 10px 1px 10px;
-}
-.search-box .form-map:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
+/*.search-box .form-map:hover {*/
+/*  background-color: rgba(255, 255, 255, 0.9);*/
+/*}*/
 .search-box .form-map input[type="text"], .search-box .form-map input[type="email"], .search-box .form-map input[type="search"], .search-box .form-map input[type="password"], .search-box .form-map input[type="number"], .search-box .form-map textarea, .search-box .form-map select, .search-box .form-map .selectpicker, .search-box .form-map .price-range {
   background-color: #073855;
   border: none;

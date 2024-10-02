@@ -44,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('regions', $regions);
             $view->with('currentDate', $formattedDate);
             $view->with('currentDateHumanFormat', StringHelper::currentDateHumanFormat($currentDate));
+            $view->with('categoryMapping', config('constants.category_mapping'));
         });
     }
 }

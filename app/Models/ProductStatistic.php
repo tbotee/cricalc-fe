@@ -20,4 +20,9 @@ class ProductStatistic extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function getFormattedPriceAttribute(): string
+    {
+        return '€' . number_format($this->average_price, 0, ',', '.');
+    }
 }

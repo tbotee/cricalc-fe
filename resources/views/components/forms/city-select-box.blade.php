@@ -16,9 +16,9 @@
     </select>
 </div>
 
-<label>
-    {{ __('body.select_city') }}
-</label>
+{{--<label>--}}
+{{--    {{ __('body.select_city') }}--}}
+{{--</label>--}}
 
 {{--@php--}}
 {{--    $region = $regions->first(function ($region) use ($regionSlug) {--}}
