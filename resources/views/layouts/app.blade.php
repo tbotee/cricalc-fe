@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,16 @@
 <body @yield('bodyProps')>
 <div class="wrapper">
     <div class="navigation">
+        <div class="secondary-navigation">
+            <div class="container">
+                <div class="user-area">
+                    <div class="language-bar">
+                        <a href="{{ url('lang/ro') }}" class="{{ App::getLocale() == 'ro' ? 'active' : ''}}"><img src="{{ asset('img/flags/ro.png') }}" alt=""></a>
+                        <a href="{{ url('lang/en') }}" class="{{ App::getLocale() == 'en' ? 'active' : ''}}"><img src="{{ asset('img/flags/us.png') }}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <header class="navbar" id="top" role="banner">
                 <div class="navbar-header">

@@ -51,3 +51,8 @@ Route::post('/contact', [ContactUsController::class, 'submit'])
 
 Route::view('/politica-de-confidențialitate', 'privacy')->name('privacy');
 Route::view('/termeni-si-conditii', 'terms')->name('terms');
+
+Route::get('lang/{locale}', function ($locale) {
+    session(['locale' => $locale]);
+    return redirect()->back();
+});
