@@ -26,4 +26,5 @@ return [
     'since_year' => "De la anul",
     'privacy' => "Politica de Confidențialitate",
     'terms' => "Termeni și Condiții",
+    "your_ad_here" => "Anunțul tău aici"
 ];

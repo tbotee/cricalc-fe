@@ -23,7 +23,12 @@
                     <aside id="edit-search" class="m-b-20">
                         <x-forms.city-select-box :regionSlug="$regionSlug"/>
                     </aside>
+
+                    <aside>
+                        <x-your-ad-here class="vertical"/>
+                    </aside>
                 </section>
+
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="agencies-listing">
