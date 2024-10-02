@@ -24,24 +24,34 @@
                         <x-forms.city-select-box :regionSlug="$regionSlug"/>
                     </aside>
                     <aside>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ __('body.date_year_selector', ['year' => $dateYear, 'month' => ucfirst($dateMonth)] ) }}
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="about-us">
-                                @foreach($history as $date)
-                                    <li>
-                                        <a href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $date->dateSlug]) }}">
-                                            {{ __('body.date_year_selector', ['year' => $date->created_at->year, 'month' => ucfirst($date->month)] ) }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        <x-your-ad-here class="vertical"/>
                     </aside>
                     <aside>
-                        <x-your-ad-here class="vertical"/>
+                        <label>{{ __('body.old_data') }}</label>
+                        <ul class="sidebar-navigation">
+                            <li class="{{ $isCurrent ? "active" : "" }}">
+                                <a
+                                    href="{{ route('region.show', ['regionSlug' => $regionSlug]) }}">
+                                    <span>{{ __('body.curent_date') }}</span>
+                                </a>
+                            </li>
+                            @if (!$isCurrent)
+                                <li class="active">
+                                    <a
+                                        href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $dateYear . '-' . $dateMonth ]) }}">
+                                        <span>{{ __('body.date_year_selector', ['year' => $dateYear, 'month' => ucfirst($dateMonth)] ) }}</span>
+                                    </a>
+                                </li>
+                            @endif
+                            @foreach($history as $date)
+                                <li class="{{ $date->created_at->year == $dateYear && $date->month == $dateMonth ? "active" : "" }}">
+                                    <a
+                                        href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $date->dateSlug]) }}">
+                                        <span>{{ __('body.date_year_selector', ['year' => $date->created_at->year, 'month' => ucfirst($date->month)] ) }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </aside>
                 </section>
 

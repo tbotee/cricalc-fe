@@ -27,5 +27,7 @@ return [
     'privacy' => "Politica de Confidențialitate",
     'terms' => "Termeni și Condiții",
     "your_ad_here" => "Anunțul tău aici",
-    "date_year_selector" => ":month :year"
+    "date_year_selector" => ":month :year",
+    "old_data" => "Arhiva / Preturi din trecut",
+    "curent_date" => "Preturi curente ",
 ];

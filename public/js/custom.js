@@ -33,7 +33,7 @@ $(document).ready(function($) {
     }
 
     var bootstrapSelect = $('.bootstrap-select');
-    var dropDownMenu = $('.dropdown-menu');
+    var dropDownMenu = $('.dropdown-menu:not(.date-filter)');
 
     bootstrapSelect.on('shown.bs.dropdown', function () {
         dropDownMenu.removeClass('animation-fade-out');

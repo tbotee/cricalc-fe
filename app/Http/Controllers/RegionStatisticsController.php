@@ -17,6 +17,7 @@ class RegionStatisticsController extends Controller
 
     public function showByDate(string $regionSlug, string $date = null)
     {
+        $isCurrent = $date == null;
         $date = $date ?? StringHelper::currentDateHumanFormat(Carbon::now()->startOfMonth()->addMonths(-1));
         $region = $this->getRegion($regionSlug);
         $startDate = StringHelper::currentDateFormHumanFormat($date);
@@ -35,7 +36,8 @@ class RegionStatisticsController extends Controller
             'dateMonth' => explode('-', $date)[1],
             'region' => $region,
             'history' => $history,
-            'currentDate' => $date
+            'currentDate' => $date,
+            'isCurrent' => $isCurrent,
         ]);
     }
     public function show_by_room_number(Request $request, string $regionSlug)
