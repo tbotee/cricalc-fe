@@ -17,7 +17,7 @@ class RegionStatisticsController extends Controller
 
     public function showByDate(string $regionSlug, string $date = null)
     {
-        $isCurrent = $date == null;
+        $isCurrent = $date == null || $date == StringHelper::currentDateHumanFormat(Carbon::now()->startOfMonth()->addMonths(-1));
         $date = $date ?? StringHelper::currentDateHumanFormat(Carbon::now()->startOfMonth()->addMonths(-1));
         $region = $this->getRegion($regionSlug);
         $startDate = StringHelper::currentDateFormHumanFormat($date);

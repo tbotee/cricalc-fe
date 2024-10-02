@@ -21,16 +21,17 @@
 <body @yield('bodyProps')>
 <div class="wrapper">
     <div class="navigation">
-        <div class="secondary-navigation">
-            <div class="container">
-                <div class="user-area">
-                    <div class="language-bar">
-                        <a href="{{ url('lang/ro') }}" class="{{ App::getLocale() == 'ro' ? 'active' : ''}}"><img src="{{ asset('img/flags/ro.png') }}" alt=""></a>
-                        <a href="{{ url('lang/en') }}" class="{{ App::getLocale() == 'en' ? 'active' : ''}}"><img src="{{ asset('img/flags/us.png') }}" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        Todo add localization --}}
+{{--        <div class="secondary-navigation">--}}
+{{--            <div class="container">--}}
+{{--                <div class="user-area">--}}
+{{--                    <div class="language-bar">--}}
+{{--                        <a href="{{ url('lang/ro') }}" class="{{ App::getLocale() == 'ro' ? 'active' : ''}}"><img src="{{ asset('img/flags/ro.png') }}" alt=""></a>--}}
+{{--                        <a href="{{ url('lang/en') }}" class="{{ App::getLocale() == 'en' ? 'active' : ''}}"><img src="{{ asset('img/flags/us.png') }}" alt=""></a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="container">
             <header class="navbar" id="top" role="banner">
                 <div class="navbar-header">
