@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+    <meta name="description" content="@yield('meta_description', 'Default description')">
+    <meta name="keywords" content="@yield('meta_keywords', 'default, keywords')">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title')</title>

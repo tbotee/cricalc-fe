@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('meta.title_privacy'))
+@section('meta_description', __('meta.meta_description_privacy'))
+@section('meta_keywords', __('meta.meta_keywords_privacy'))
+
 @section('bodyProps')
     class="page-sub-page page-profile page-account" id="page-top"
 @endsection

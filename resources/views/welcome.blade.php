@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('meta.title_home'))
+@section('meta_description', __('meta.meta_description_home'))
+@section('meta_keywords', __('meta.meta_keywords_home'))
+
 @section('bodyProps')
     class="page-homepage navigation-fixed-top page-slider page-slider-search-box" id="page-top" data-spy="scroll" data-target=".navigation" data-offset="90"
 @endsection

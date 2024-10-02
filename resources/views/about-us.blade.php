@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('meta.title_about'))
+@section('meta_description', __('meta.meta_description_about'))
+@section('meta_keywords', __('meta.meta_keywords_about'))
+
 @section('bodyProps')
     class="page-sub-page page-about-us" id="page-top"
 @endsection
