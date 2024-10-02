@@ -24,4 +24,6 @@ return [
     'nr_of_cities_listed' => "Numarul oraselor listate",
     'nr_of_statistics' => "Numarul statisticelor",
     'since_year' => "De la anul",
+    'privacy' => "Politica de Confidențialitate",
+    'terms' => "Termeni și Condiții",
 ];

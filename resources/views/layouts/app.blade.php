@@ -73,20 +73,11 @@
             <aside id="footer-main">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-3">
-                            <article>
-                                <h3>{{ __('menu.about_us') }}</h3>
-                                <p>La RealEstateStats România, suntem destinația dvs. unică pentru informații precise și actualizate despre prețurile imobiliare din frumoasele regiuni ale României. Platforma noastră este dedicată să vă ofere informații complete despre prețurile proprietăților din diferite orașe și regiuni, permițându-vă să luați decizii informate atunci când vine vorba de cumpărarea sau vânzarea de bunuri imobiliare.
-                                </p>
-                                <hr>
-                                <a href="#" class="link-arrow">{{ __('body.read_more') }}</a>
-                            </article>
-                        </div><!-- /.col-sm-3 -->
                         @php
-                            $chunkedArrays = array_chunk($regions->toArray(), ceil(count($regions->toArray()) / 3));
+                            $chunkedArrays = array_chunk($regions->toArray(), ceil(count($regions->toArray()) / 4));
                         @endphp
                         @foreach($chunkedArrays as $index => $chunk)
-                            <div class="col-md-3 col-sm-3">
+                            <div class="col-md-3 col-sm-4">
                                 <article>
                                     @if($index === 0)
                                         <h3>{{ __('body.select_region') }}</h3>
@@ -106,6 +97,14 @@
                             </div>
                         @endforeach
                     </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-3 col-sm-4">
+                            <a href="{{ route('privacy') }}">{{ __('body.privacy') }}</a>
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <a href="{{ route('terms') }}">{{ __('body.terms') }}</a>
+                        </div>
+                    </div>
                 </div><!-- /.container -->
             </aside><!-- /#footer-main -->
             <aside id="footer-thumbnails" class="footer-thumbnails"></aside><!-- /#footer-thumbnails -->
@@ -155,13 +154,3 @@
 
 </body>
 </html>
-
-{{--Images
-Photo by <a href="https://unsplash.com/@paralitik?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Brandon Griggs</a> on <a href="https://unsplash.com/photos/low-angle-view-of-building-wR11KBaB86U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-Photo by <a href="https://unsplash.com/@etienne_beauregard?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Étienne Beauregard-Riverin</a> on <a href="https://unsplash.com/photos/windowpanes-at-the-building-B0aCvAVSX8E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-Photo by <a href="https://unsplash.com/@kanetaylor?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kane Taylor</a> on <a href="https://unsplash.com/photos/green-palm-tree-near-silver-sedan-02fRawxKwbA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-Photo by <a href="https://unsplash.com/@rgaleriacom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ricardo Gomez Angel</a> on <a href="https://unsplash.com/photos/low-angle-photography-of-condominium-iYQT6PNToYo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-Photo by <a href="https://unsplash.com/@sergio_rola?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sérgio Rola</a> on <a href="https://unsplash.com/photos/brown-concrete-building-at-daytime-rpnL45a3-m8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-Photo by <a href="https://unsplash.com/@slashhearts?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Philip de Leon</a> on <a href="https://unsplash.com/photos/white-and-green-building-4N3WK2PgrFk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-
---}}

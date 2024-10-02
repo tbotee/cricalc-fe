@@ -1,4 +1,4 @@
-<header><h3>{{ __('body.filters') }}</h3></header>
+<header class="filter-title"><h3>{{ __('body.filters') }}</h3></header>
 
 <label>
     {{ __('body.select_region') }}

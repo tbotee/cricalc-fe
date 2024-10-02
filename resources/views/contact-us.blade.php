@@ -15,20 +15,14 @@
     <div class="container">
         <div class="row">
             <!-- Contact -->
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-12 col-sm-12">
                 <section id="agent-detail">
                     <header><h1>Contact</h1></header>
                     <section id="contact-information">
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
-                                <section id="address">
-                                    <header><h3>Address</h3></header>
-                                    <address>
-                                        <strong>Your Company</strong><br>
-                                        4877 Spruce Drive<br>
-                                        West Newton, PA 15089
-                                    </address>
-                                </section><!-- /#address -->
+                                <x-forms.city-select-box regionSlug="no-slug"/>
+
 {{--                                <section id="social">--}}
 {{--                                    <header><h3>Social Profiles</h3></header>--}}
 {{--                                    <div class="agent-social">--}}
@@ -77,14 +71,6 @@
             </div><!-- /.col-md-9 -->
             <!-- end Contact -->
 
-            <!-- sidebar -->
-            <div class="col-md-3 col-sm-3">
-                <section id="sidebar">
-                    <aside id="edit-search">
-                        <x-forms.search-box showTitle="true"/>
-                    </aside><!-- /#edit-search -->
-                </section><!-- /#sidebar -->
-            </div><!-- /.col-md-3 -->
             <!-- end Sidebar -->
         </div><!-- /.row -->
     </div><!-- /.container -->

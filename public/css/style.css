@@ -4653,6 +4653,10 @@ form label.error:before {
   width: 100%;
 }
 
+#contact-information .filter-title {
+    display: none;
+}
+
 .search-box .form-map .selectpicker.is-invalid {
     background-color: #C9302C;
     color: #fff;
