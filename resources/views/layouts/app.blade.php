@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
     <meta name="description" content="@yield('meta_description', 'Default description')">
     <meta name="keywords" content="@yield('meta_keywords', 'default, keywords')">
+    <meta name="google-adsense-account" content="ca-pub-9218405650262587">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
