@@ -4980,7 +4980,6 @@ body, html {
 }
 
 #page-footer {
-  display: table-row;
   height: 1px;
 }
 
@@ -5283,6 +5282,10 @@ body, html {
   .agency .wrapper {
     display: block;
     width: inherit;
+  }
+  #footer-main {
+      text-align: center;
+
   }
   .agency .wrapper dl, .agency .wrapper address {
     display: block;

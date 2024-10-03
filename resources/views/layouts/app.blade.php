@@ -101,7 +101,7 @@
                             $chunkedArrays = array_chunk($regions->toArray(), ceil(count($regions->toArray()) / 4));
                         @endphp
                         @foreach($chunkedArrays as $index => $chunk)
-                            <div class="col-md-3 col-sm-4">
+                            <div class="col-sm-4 col-sm-4">
                                 <article>
                                     @if($index === 0)
                                         <h3>{{ __('body.select_region') }}</h3>
@@ -122,10 +122,10 @@
                         @endforeach
                     </div><!-- /.row -->
                     <div class="row">
-                        <div class="col-md-3 col-sm-4">
+                        <div class="col-md-4 col-sm-4">
                             <a href="{{ route('privacy') }}">{{ __('body.privacy') }}</a>
                         </div>
-                        <div class="col-md-3 col-sm-4">
+                        <div class="col-md-4 col-sm-4">
                             <a href="{{ route('terms') }}">{{ __('body.terms') }}</a>
                         </div>
                     </div>
