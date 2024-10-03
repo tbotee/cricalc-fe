@@ -23,9 +23,8 @@
                     <aside id="edit-search" class="m-b-20">
                         <x-forms.city-select-box :regionSlug="$regionSlug"/>
                     </aside>
-                    <aside>
-                        <x-your-ad-here class="vertical"/>
-                    </aside>
+                </section>
+                <section id="sidebar">
                     <aside>
                         <label>{{ __('body.old_data') }}</label>
                         <ul class="sidebar-navigation">
@@ -48,14 +47,21 @@
                         </ul>
                     </aside>
                 </section>
+                <section>
+                    <aside>
+                        <x-your-ad-here class="vertical"/>
+                    </aside>
+                </section>
 
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="agencies-listing">
                     <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth, 'region' => $region->name]) }} </h1></header>
                     <p>{{ __('meta.meta_description_region_statistics', ['region' => $region->name]) }}</p>
-                    <div class="fun-facts no-line">
-                        @foreach ($data as $cityStatistics)
+                </section>
+                <div class="fun-facts no-line">
+                    @foreach ($data as $cityStatistics)
+                        <section>
                             <div class="agency" >
 {{--                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">--}}
                                     <a class="agency-image v-align-top" href="javascript:void(0);">
@@ -83,9 +89,10 @@
 {{--                                    </a>--}}
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
-                </section>
+                        </section>
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </div>

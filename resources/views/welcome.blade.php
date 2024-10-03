@@ -53,14 +53,14 @@
 
 @section('content')
     <x-city-listing :statistics_data="$one_room_apartments" :title="__('body.cheapest_cities_with_1_rooms')"/>
-    <div class="container">
-        <x-your-ad-here />
-    </div>
+{{--    <div class="container">--}}
+{{--        <x-your-ad-here />--}}
+{{--    </div>--}}
     <x-city-listing :statistics_data="$two_room_apartments"
                     :title="__('body.cheapest_cities_with_x_rooms', ['room_count' => config('constants.apartment_types')['2-camere']])"/>
-    <div class="container">
-        <x-your-ad-here />
-    </div>
+{{--    <div class="container">--}}
+{{--        <x-your-ad-here />--}}
+{{--    </div>--}}
     <x-city-listing :statistics_data="$three_room_apartments"
                     :title="__('body.cheapest_cities_with_x_rooms', ['room_count' => config('constants.apartment_types')['3-camere']])"/>
     <div class="container">
