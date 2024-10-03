@@ -43,6 +43,23 @@
                             <h3>Utilizarea Datelor</h3>
                             <p>Datele colectate sunt utilizate exclusiv pentru a măsura și îmbunătăți performanța site-ului, precum și pentru a asigura o experiență optimizată pentru utilizatori. Informațiile sunt analizate pentru a înțelege comportamentul general al vizitatorilor și pentru a identifica eventuale probleme tehnice sau de utilizabilitate.</p>
                         </section>
+
+                        <section>
+                            <h3>Google AdSense</h3>
+                            <p>Site-ul nostru utilizează Google AdSense pentru a afișa reclame vizitatorilor. Google AdSense utilizează cookie-uri pentru a afișa anunțuri relevante și pentru a măsura eficiența campaniilor publicitare. Aceste cookie-uri pot colecta informații anonime despre vizitatorii site-ului, cum ar fi:</p>
+                            <ul>
+                                <li>Tipul browserului și dispozitivului utilizat</li>
+                                <li>Categoriile de interese pe baza activității de navigare</li>
+                                <li>Vizitele anterioare pe site-ul nostru sau pe alte site-uri care utilizează serviciile de publicitate Google</li>
+                            </ul>
+                            <p>
+                                Google AdSense utilizează datele colectate pentru a oferi anunțuri personalizate pe baza intereselor utilizatorilor. Aceste date sunt gestionate în conformitate cu politica de confidențialitate a Google.
+                            </p>
+                        </section>
+                        <section>
+                            <h3>Controlul Cookie-urilor Google AdSense</h3>
+                            <p>Vizitatorii pot alege să controleze modul în care Google colectează și utilizează datele lor de navigare. Puteți dezactiva personalizarea anunțurilor accesând setările de publicitate Google la <a href="https://adssettings.google.com/">Google Ads Settings</a> sau utilizând instrumente de gestionare a cookie-urilor disponibile în browser-ul dvs.</p>
+                        </section>
                         <section>
                             <h3>Cookie-uri</h3>
                             <p>Site-ul nostru utilizează doar cookie-uri necesare pentru funcționarea corectă a acestuia. Aceste cookie-uri nu colectează informații personale și nu pot fi utilizate pentru a urmări activitatea pe alte site-uri. Utilizăm cookie-uri pentru:</p>
