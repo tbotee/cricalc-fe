@@ -23,6 +23,6 @@ class ContactUsController extends Controller
 
         Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
 
-        return back()->with('success', __('contact.thank_your_for_contacting'));
+        return back()->with('success', __('contact.thank_you_for_contacting'));
     }
 }
