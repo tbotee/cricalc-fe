@@ -19,7 +19,7 @@
                         <div class="overlay">
                             <div class="info">
                                 <div class="tag price">{{ __('body.average_price', ['price' => $cityStatistics->formattedPrice]) }}</div>
-                                <h3>{{__('body.aratmament_cu_x_camere_plural', ['room_count' => array_search($cityStatistics->category_id, $categoryMapping)]) }}</h3>
+                                <h3>{{__('body.apartment_cu_x_camere_plural', ['room_count' => array_search($cityStatistics->category_id, $categoryMapping)]) }}</h3>
                                 <figure>{{ $cityStatistics->city->name  }}</figure>
                             </div>
                             <hr>

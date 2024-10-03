@@ -1,12 +1,12 @@
 <?php
 
 return [
-    "site_name" => "SiteName",
+    "site_name" => "HomeHunt",
     "region_page_title" => 'Preturile apartamentelor in :month :year pentru judetul :region',
     "region_string_plus_name" => 'Judetul :region',
     "apartment_count" => 'apartamente de vânzare',
-    "aratmament_cu_x_camere" => 'apartament(e) cu :room_count camere',
-    "aratmament_cu_x_camere_plural" => 'apartamente cu :room_count camere',
+    "apartment_cu_x_camere" => 'apartament(e) cu :room_count camere',
+    "apartment_cu_x_camere_plural" => 'apartamente cu :room_count camere',
     "select_city" => 'Selecteza o localitate',
     "home_button_name" => 'Acasa',
     "filters" => 'Filtre',
@@ -29,5 +29,5 @@ return [
     "your_ad_here" => "Anunțul tău aici",
     "date_year_selector" => ":month :year",
     "old_data" => "Arhiva / Preturi din trecut",
-    "curent_date" => "Preturi curente ",
+    "current_date" => "Preturi curente ",
 ];

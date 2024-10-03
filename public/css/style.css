@@ -55,6 +55,14 @@ a h1, a h2, a h3, a h4 {
   color: #073855;
 }
 
+.hh-logo {
+    max-height: 60px;
+}
+
+.hh-logo-wrapper {
+    color: #5a5a5a;
+}
+
 blockquote {
   border: none;
   display: table;

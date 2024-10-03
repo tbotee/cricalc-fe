@@ -123,11 +123,12 @@ class ApartmentStatisticsService
     }
 
     //todo rename this
-    public function getApartmentCountForRegion(Carbon $startDate, Carbon $endDate, array $categoryIds, array $cityIds): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array
+    public function getCityStatisticsForCitiesWithCategories(Carbon $startDate, Carbon $endDate, array $categoryIds, array $cityIds): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array
     {
-        return ProductStatistic::where('created_at', '>=', new Carbon($startDate))
+        //dd($startDate, $endDate, $categoryIds, $cityIds);
+        return ProductStatistic::where('created_at', '>=', $startDate->format('Y-m-d'))
+            ->where('created_at', '<=', $endDate->format('Y-m-d'))
             ->with('city', 'city.region')
-            ->where('created_at', '<=', new Carbon($endDate))
             ->whereIn('category_id', $categoryIds)
             ->whereIn('city_id', $cityIds)
             ->get();
@@ -135,8 +136,8 @@ class ApartmentStatisticsService
 
     public function getCheapestCitiesForCategory(Carbon $startDate, Carbon $endDate, int $categoryId)
     {
-        return ProductStatistic::where('created_at', '>=', new Carbon($startDate))
-            ->where('created_at', '<=', new Carbon($endDate))
+        return ProductStatistic::where('created_at', '>=', $startDate->format('Y-m-d'))
+            ->where('created_at', '<=', $endDate->format('Y-m-d'))
             ->where('category_id', $categoryId)
             ->with('city', 'city.region')
             ->orderBy('average_price', 'ASC')
@@ -146,7 +147,7 @@ class ApartmentStatisticsService
 
     public function getHistoryLinks(Carbon $startDate, array $cityIds, array $categoryIds)
     {
-        return ProductStatistic::where('created_at', '<=', $startDate)
+        return ProductStatistic::where('created_at', '<=', $startDate->endOfMonth()->format('Y-m-d'))
             ->select(
                 DB::raw('MAX(created_at) as created_at'),
                 DB::raw('DATE_FORMAT(created_at, "%Y-%m") as formated_created_at')
@@ -155,7 +156,7 @@ class ApartmentStatisticsService
             ->whereIn('city_id', $cityIds)
             ->groupBy('formated_created_at')
             ->orderBy('formated_created_at', 'DESC')
-            ->limit(4)
+            ->limit(6)
             ->get();
 
     }

@@ -21,7 +21,7 @@ class ContactUsController extends Controller
             'form-contact-message' => 'required',
         ]);
 
-        Mail::to('your@email.com')->send(new ContactFormMail($validated));
+        Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
 
         return back()->with('success', __('contact.thank_your_for_contacting'));
     }

@@ -32,24 +32,18 @@
                             <li class="{{ $isCurrent ? "active" : "" }}">
                                 <a
                                     href="{{ route('region.show', ['regionSlug' => $regionSlug]) }}">
-                                    <span>{{ __('body.curent_date') }}</span>
+                                    <span>{{ __('body.current_date') }}</span>
                                 </a>
                             </li>
-                            @if (!$isCurrent)
-                                <li class="active">
-                                    <a
-                                        href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $dateYear . '-' . $dateMonth ]) }}">
-                                        <span>{{ __('body.date_year_selector', ['year' => $dateYear, 'month' => ucfirst($dateMonth)] ) }}</span>
-                                    </a>
-                                </li>
-                            @endif
                             @foreach($history as $date)
-                                <li class="{{ $date->created_at->year == $dateYear && $date->month == $dateMonth ? "active" : "" }}">
-                                    <a
-                                        href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $date->dateSlug]) }}">
-                                        <span>{{ __('body.date_year_selector', ['year' => $date->created_at->year, 'month' => ucfirst($date->month)] ) }}</span>
-                                    </a>
-                                </li>
+                                @if($date->created_at->year != $latestDateYear || $date->month != $latestDateMonth)
+                                    <li class="{{ $date->created_at->year == $dateYear && $date->month == $dateMonth ? "active" : "" }}">
+                                        <a
+                                            href="{{ route('region.show', ['regionSlug' => $regionSlug, 'date' => $date->dateSlug]) }}">
+                                            <span>{{ __('body.date_year_selector', ['year' => $date->created_at->year, 'month' => ucfirst($date->month)] ) }}</span>
+                                        </a>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </aside>
@@ -78,7 +72,7 @@
                                 <div class="wrapper">
                                     <dl class="w-100">
                                         @foreach ($cityStatistics['items'] as $item)
-                                            <dt>{{ $item['count'] }} {{__('body.aratmament_cu_x_camere', ['room_count' => array_search($item['category_id'], $categoryMapping)]) }} </dt>
+                                            <dt>{{ $item['count'] }} {{__('body.apartment_cu_x_camere', ['room_count' => array_search($item['category_id'], $categoryMapping)]) }} </dt>
                                             <dd>
                                                 €{{ number_format($item['average_price'], 0, ',', '.') }}
                                             </dd>

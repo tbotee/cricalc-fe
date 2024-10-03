@@ -42,7 +42,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand nav" id="brand">
-                        <a href="{{ route('welcome') }}"><img src="{{ asset('img/logo.png') }}" alt="brand"></a>
+                        <a href="{{ route('welcome') }}" class="hh-logo-wrapper"><img src="{{ asset('img/hhlogo.png') }}" alt="brand" class="hh-logo">
+                            Home Hunt
+                        </a>
                     </div>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">

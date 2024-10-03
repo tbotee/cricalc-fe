@@ -71,7 +71,7 @@ class WelcomeController extends Controller
 
     private function getStatisticsForHomeBanner(Carbon $startDate, Carbon $endDate): \Illuminate\Support\Collection
     {
-        return $this->aSS->getApartmentCountForRegion(
+        return $this->aSS->getCityStatisticsForCitiesWithCategories(
             $startDate,
             $endDate,
             [config('constants.category_mapping')[2]],

@@ -27,6 +27,7 @@ class RegionStatisticsController extends Controller
             $item->month = StringHelper::getHumanMonthFromDate($item->created_at);
             $item->dateSlug = StringHelper::currentDateHumanFormat($item->created_at);
         }
+        $latestDate = StringHelper::currentDateHumanFormat(Carbon::now()->startOfMonth()->addMonths(-1));
 
         return view('region-statistics', [
             'data' => $result,
@@ -34,6 +35,8 @@ class RegionStatisticsController extends Controller
             'regionSlug' => $regionSlug,
             'dateYear' => explode('-', $date)[0],
             'dateMonth' => explode('-', $date)[1],
+            'latestDateYear' => explode('-', $latestDate)[0],
+            'latestDateMonth' => explode('-', $latestDate)[1],
             'region' => $region,
             'history' => $history,
             'currentDate' => $date,
@@ -47,7 +50,7 @@ class RegionStatisticsController extends Controller
 
     private function getRegionData(Carbon $startDate, array $sortedCities): array
     {
-        $regionData = $this->aSS->getApartmentCountForRegion(
+        $regionData = $this->aSS->getCityStatisticsForCitiesWithCategories(
             $startDate,
             $startDate->copy()->endOfMonth(),
             config('constants.category_mapping'),

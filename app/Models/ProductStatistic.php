@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ProductStatistic extends Model
 {
-    protected $dates = ['created_at'];
+    protected $casts = [
+        'created_at' => 'date'
+    ];
 
     protected $protected = [
         'id'
