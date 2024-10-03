@@ -54,6 +54,6 @@ class ProductStatisticAggregationSeeder extends Seeder
             FROM temp_product_statistics;
         ");
 
-        DB::statement(`DROP TEMPORARY TABLE IF EXISTS temp_product_statistics;`);
+        DB::statement("DROP TEMPORARY TABLE IF EXISTS temp_product_statistics;");
     }
 }
