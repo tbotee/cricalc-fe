@@ -49,7 +49,7 @@ Route::get('/contact', [ContactUsController::class, 'show'])
 Route::post('/contact', [ContactUsController::class, 'submit'])
     ->name('contact_us.submit');
 
-Route::view('/politica-de-confidențialitate', 'privacy')->name('privacy');
+Route::view('/politica-de-confidentialitate', 'privacy')->name('privacy');
 Route::view('/termeni-si-conditii', 'terms')->name('terms');
 
 Route::get('lang/{locale}', function ($locale) {
