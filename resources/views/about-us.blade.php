@@ -34,7 +34,7 @@
                     <section id="ceo-section" class="center">
                         <header class="center"><div class="cite-title">{{ __('body.serving_since')  }}</div></header>
                         <div class="cite no-bottom-margin">
-                            SiteName România oferă informații actualizate și analize detaliate despre piața imobiliară din România, ajutându-vă să faceți alegeri informate pentru investițiile dvs. imobiliare.
+                            Home Hunt România oferă informații actualizate și analize detaliate despre piața imobiliară din România, ajutându-vă să faceți alegeri informate pentru investițiile dvs. imobiliare.
                         </div>
                         <hr class="divider">
                     </section>

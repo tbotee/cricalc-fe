@@ -18,16 +18,79 @@
             <div class="col-md-3 col-sm-2">
                 <section id="sidebar">
                     <aside id="edit-search" class="m-b-20">
-                        <x-forms.city-select-box :regionSlug="$regionSlug"/>
+                        <x-forms.city-select-box :regionSlug="$regionSlug" :locationSlug="$locationSlug"/>
                     </aside>
                 </section>
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="fun-facts" class="counting-numbers">
-                    <header><h1>{{ __('body.select_city') }} {{ $lastStatisticalDate }}</h1></header>
-                    <div class="fun-facts">
+                    <header><h1>{{ __('body.select_city_title', ['city_name' => $city->name ]) }}</h1></header>
+                    @if($currentStatistics->count())
+                    <p>Descoperă prețurile medii ale apartamentelor cu 1, 2, 3 și 4 camere din {{ $city->name }}, {{ $city->region->name  }}. Aici găsești informații esențiale despre piața imobiliară locală, care te vor ajuta să iei decizii informate, fie că intenționezi să închiriezi sau să achiziționezi un apartament. Fii la curent cu cele mai recente tendințe și date privind prețurile, adaptate nevoilor tale specifice, pentru a-ți maximiza oportunitățile în această piață dinamică.</p>
+                    <div class="statistics-row">
+                        @foreach($currentStatistics as $statistics)
+                        <div class="item">
+                            <div class="number-statistics-wrapper">
+                                <div class="number">€{{ number_format($statistics->average_price, 0, ',', '.') }}</div>
+                                <div>{{ $statistics->count }} {{__('body.apartment_cu_x_camere', ['room_count' => array_search($statistics->category_id, $categoryMapping)]) }}</div>
+                            </div><!-- /.number-wrapper -->
+                        </div>
+                        @endforeach
+                    </div><!-- /.row -->
+                    @endif
 
-                    </div>
+                </section>
+                <section id="select-package">
+                    <p>Consultă tabelul nostru pentru a analiza evoluția prețurilor medii ale apartamentelor din {{ $city->name}}, {{ $city->region->name  }} de-a lungul lunilor. Acest istoric te va ajuta să observi tendințele pieței imobiliare și să iei decizii informate, fie că ești în căutarea unei locuințe de închiriat sau dorind să investești în proprietăți.
+                    </p>
+                    <div class="table-responsive submit-pricing">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>{{ __('body.date') }}</th>
+                                <th class="title">{{ __('body.1_rooms') }}</th>
+                                <th class="title">{{ __('body.x_rooms', ['count' => config('constants.apartment_types')['2-camere']]) }}</th>
+                                <th class="title">{{ __('body.x_rooms', ['count' => config('constants.apartment_types')['3-camere']]) }}</th>
+                                <th class="title">{{ __('body.x_rooms', ['count' => config('constants.apartment_types')['4-camere']]) }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($allStatistics as $statistics)
+                                <tr>
+                                    <td>{{ $statistics[0] }}</td>
+                                    <td>
+                                        @if(!empty($statistics[1]))
+                                            €{{ number_format($statistics[1]['average_price'], 0, ',', '.') }} ({{ $statistics[1]['count'] }})
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($statistics[2]))
+                                            €{{ number_format($statistics[2]['average_price'], 0, ',', '.') }} ({{ $statistics[2]['count'] }})
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($statistics[3]))
+                                            €{{ number_format($statistics[3]['average_price'], 0, ',', '.') }} ({{ $statistics[3]['count'] }})
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($statistics[4]))
+                                            €{{ number_format($statistics[4]['average_price'], 0, ',', '.') }} ({{ $statistics[4]['count'] }})
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div><!-- /.submit-pricing -->
                 </section>
             </div>
         </div>

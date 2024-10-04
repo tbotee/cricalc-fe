@@ -21,7 +21,7 @@
             <div class="col-md-3 col-sm-2">
                 <section id="sidebar">
                     <aside id="edit-search" class="m-b-20">
-                        <x-forms.city-select-box :regionSlug="$regionSlug"/>
+                        <x-forms.city-select-box :regionSlug="$regionSlug" locationSlug=""/>
                     </aside>
                 </section>
                 <section id="sidebar">
@@ -63,7 +63,7 @@
                     @foreach ($data as $cityStatistics)
                         <section>
                             <div class="agency" >
-{{--                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">--}}
+                                <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">
                                     <a class="agency-image v-align-top" href="javascript:void(0);">
                                         <div class="number-wrapper">
                                             <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
@@ -74,7 +74,7 @@
                                             <figure>{{ __('body.apartment_count') }}</figure>
                                         </div>
                                     </a>
-{{--                                </a>--}}
+                                </a>
                                 <div class="wrapper">
                                     <dl class="w-100">
                                         @foreach ($cityStatistics['items'] as $item)
@@ -84,9 +84,9 @@
                                             </dd>
                                         @endforeach
                                     </dl>
-{{--                                    <a class="btn pull-right btn-default" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}">--}}
-{{--                                        {{ __('body.details') }}--}}
-{{--                                    </a>--}}
+                                    <a class="btn pull-right btn-default" href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}">
+                                        {{ __('body.details') }}
+                                    </a>
                                 </div>
                             </div>
                         </section>

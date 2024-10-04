@@ -16,35 +16,29 @@
     </select>
 </div>
 
-{{--<label>--}}
-{{--    {{ __('body.select_city') }}--}}
-{{--</label>--}}
 
-{{--@php--}}
-{{--    $region = $regions->first(function ($region) use ($regionSlug) {--}}
-{{--            return $region->slug === $regionSlug;--}}
-{{--        });--}}
-{{--@endphp--}}
 
-{{--<ul class="sidebar-navigation">--}}
-{{--    @foreach ($region->cities as $city)--}}
-{{--        <li>--}}
-{{--            <a--}}
-{{--                href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $city->slug]) }}">--}}
-{{--                <i class="fa fa-map-marker"></i>--}}
-{{--                <span>{{ $city->name }}</span>--}}
-{{--            </a>--}}
-{{--        </li>--}}
-{{--    @endforeach--}}
-{{--</ul>--}}
-{{--<div class="dropdown">--}}
-{{--    <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--        About Us--}}
-{{--        <span class="caret"></span>--}}
-{{--    </button>--}}
-{{--    <ul class="dropdown-menu" aria-labelledby="about-us">--}}
-{{--        <li><a href="#">Our Story</a></li>--}}
-{{--        <li><a href="#">Our Team</a></li>--}}
-{{--        <li><a href="#">Contact Us</a></li>--}}
-{{--    </ul>--}}
-{{--</div>--}}
+@php
+    $region = $regions->first(function ($region) use ($regionSlug) {
+            return $region->slug === $regionSlug;
+        });
+@endphp
+
+@if($region && !empty($region) && !empty($region->cities))
+
+    <label>
+        {{ __('body.select_city') }}
+    </label>
+    <ul class="sidebar-navigation">
+        @foreach ($region->cities as $city)
+
+            <li class="{{ $city->slug == $locationSlug ? 'active' : '' }}">
+                <a
+                    href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $city->slug]) }}">
+                    <i class="fa fa-map-marker"></i>
+                    <span>{{ $city->name }}</span>
+                </a>
+            </li>
+        @endforeach
+    </ul>
+@endif

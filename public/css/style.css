@@ -1784,6 +1784,47 @@ ul.list-links li a:hover {
   pointer-events: none;
 }
 
+.col {
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.statistics-row {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center items when there's extra space */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap; /* Allow items to wrap if there are too many */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+    padding: 20px; /* Optional padding around the container */
+}
+
+.statistics-row .item {
+    flex: 1 1 calc(25% - 20px); /* Each item takes up to 25% of the width */
+    margin: 10px; /* Space between items */
+    text-align: center; /* Center text within each item */
+    padding: 20px; /* Optional padding for item */
+    background-color: #f0f0f0; /* Light gray background for items */
+    border: 1px solid #ccc; /* Optional border for items */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+
+.number-statistics-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.number-statistics-wrapper .number {
+    color: #1396e2;
+    font-size: 38px;
+    font-weight: lighter;
+    position: relative;
+}
+
 .error-page {
   display: table;
   text-align: center;
@@ -3364,9 +3405,14 @@ ul.list-links li a:hover {
   font-weight: lighter;
   font-size: 18px;
   padding: 0;
-  width: 25%;
+  width: 20% !important;
   vertical-align: middle;
 }
+
+.submit-pricing table thead tr th:first-child {
+    width: 100px
+}
+
 .submit-pricing table thead tr th.title {
   color: #1396e2;
   font-size: 24px;

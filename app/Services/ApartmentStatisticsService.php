@@ -122,15 +122,21 @@ class ApartmentStatisticsService
             ->first();
     }
 
-    //todo rename this
-    public function getCityStatisticsForCitiesWithCategories(Carbon $startDate, Carbon $endDate, array $categoryIds, array $cityIds): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array
-    {
-        //dd($startDate, $endDate, $categoryIds, $cityIds);
+    public function getCityStatisticsForCitiesWithCategories(
+        Carbon $startDate,
+        Carbon $endDate,
+        array $categoryIds,
+        array $cityIds,
+        array $orderBy = []
+    ): \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|array {
         return ProductStatistic::where('created_at', '>=', $startDate->format('Y-m-d'))
             ->where('created_at', '<=', $endDate->format('Y-m-d'))
             ->with('city', 'city.region')
             ->whereIn('category_id', $categoryIds)
             ->whereIn('city_id', $cityIds)
+            ->when($orderBy, function($query) use ($orderBy) {
+                return $query->orderBy($orderBy[0], $orderBy[1]);
+            })
             ->get();
     }
 

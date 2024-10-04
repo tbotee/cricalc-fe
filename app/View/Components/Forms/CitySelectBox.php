@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 
 class CitySelectBox extends Component
 {
-    public function __construct(public string $regionSlug)
+    public function __construct(public string $regionSlug, public ?string $locationSlug = null)
     {
     }
 
@@ -24,6 +24,7 @@ class CitySelectBox extends Component
 
         return view('components.forms.city-select-box', [
             'regionSlug' => $this->regionSlug,
+            'locationSlug' => $this->locationSlug,
             'years' => $years
         ]);
     }

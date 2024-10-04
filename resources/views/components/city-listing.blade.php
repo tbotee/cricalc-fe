@@ -15,7 +15,7 @@
                             <p>
                                 {{ __('body.average_price', ['price' => $statistics->formattedPrice]) }}
                             </p>
-                            <a href="{{ route('region.show', ['regionSlug' => $statistics->city->region->slug, 'date' => $currentDateHumanFormat]) }}" class="link-arrow">
+                            <a href="{{ route('region.show', ['regionSlug' => $statistics->city->region->slug]) }}" class="link-arrow">
                                 {{ __('body.read_more')  }}
                             </a>
                         </aside>

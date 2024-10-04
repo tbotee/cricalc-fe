@@ -30,4 +30,7 @@ return [
     "date_year_selector" => ":month :year",
     "old_data" => "Arhiva / Prețuri din trecut",
     "current_date" => "Prețuri curente",
+    "x_rooms" => ":count camere",
+    "1_rooms" => "Garzonieră",
+
 ];
