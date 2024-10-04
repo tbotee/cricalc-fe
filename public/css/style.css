@@ -1813,7 +1813,7 @@ ul.list-links li a:hover {
 
 .number-statistics-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content:center;
 }
