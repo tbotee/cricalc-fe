@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class ContactUsController extends Controller
 {
@@ -21,7 +22,11 @@ class ContactUsController extends Controller
             'form-contact-message' => 'required',
         ]);
 
-        Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
+        Log::channel('single')->info('Contact Form Email:', [
+            'recipient' => 'tbotee@yahoo.com',
+            'data' => $validated
+        ]);
+        //Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
 
         return back()->with('success', __('contact.thank_you_for_contacting'));
     }
