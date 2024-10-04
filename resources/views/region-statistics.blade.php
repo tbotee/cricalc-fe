@@ -64,16 +64,14 @@
                         <section>
                             <div class="agency" >
                                 <a href="{{ route('location.show', ['regionSlug' => $regionSlug, 'locationSlug' => $cityStatistics['citySlug']]) }}" class="agency-image v-align-top">
-                                    <a class="agency-image v-align-top" href="javascript:void(0);">
-                                        <div class="number-wrapper">
-                                            <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
-                                            <h3 class="text-center no-margin"></h3>
-                                            <div class="number" data-from="1" data-to="{{ $cityStatistics['total'] }}">
-                                                {{ $cityStatistics['total'] }}
-                                            </div>
-                                            <figure>{{ __('body.apartment_count') }}</figure>
+                                    <div class="number-wrapper">
+                                        <h2 class="text-center no-margin">{{ $cityStatistics['cityName'] }}</h2>
+                                        <h3 class="text-center no-margin"></h3>
+                                        <div class="number" data-from="1" data-to="{{ $cityStatistics['total'] }}">
+                                            {{ $cityStatistics['total'] }}
                                         </div>
-                                    </a>
+                                        <figure>{{ __('body.apartment_count') }}</figure>
+                                    </div>
                                 </a>
                                 <div class="wrapper">
                                     <dl class="w-100">
