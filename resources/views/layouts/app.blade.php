@@ -103,7 +103,7 @@
                             $chunkedArrays = array_chunk($regions->toArray(), ceil(count($regions->toArray()) / 4));
                         @endphp
                         @foreach($chunkedArrays as $index => $chunk)
-                            <div class="col-sm-4 col-sm-4">
+                            <div class="col-sm-3 col-xs-6">
                                 <article>
                                     @if($index === 0)
                                         <h3>{{ __('body.select_region') }}</h3>
