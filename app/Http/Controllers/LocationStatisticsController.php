@@ -26,7 +26,7 @@ class LocationStatisticsController extends Controller
             [$city->id]
         );
 
-        $allStatistics = $this->getAllStatisticsForACity($date, $city);
+        list($allStatistics, $chartData) = $this->getAllStatisticsForACity($date, $city);
 
         return view('location-statistics', [
             'regionSlug' => $regionSlug,
@@ -34,7 +34,8 @@ class LocationStatisticsController extends Controller
             'setSelectedRegion' => true,
             'city' => $city,
             'currentStatistics' => $cityStatistics,
-            'allStatistics' => $allStatistics
+            'allStatistics' => $allStatistics,
+            'chartData' => $chartData
         ]);
     }
 
@@ -50,6 +51,7 @@ class LocationStatisticsController extends Controller
     private function getAllStatisticsForACity(Carbon $date, $city): array
     {
         $result = [];
+        $chartData = [];
         $statistics = $this->aSS->getCityStatisticsForCitiesWithCategories(
             Carbon::create(1970, 1, 1),
             $date->copy()->addDays(-1),
@@ -62,9 +64,11 @@ class LocationStatisticsController extends Controller
         $groupedStatistics = $statistics->groupBy('created_at');
         foreach ($groupedStatistics as $date => $items) {
             $carbonDate = Carbon::parse($date);
+            $label = $carbonDate->year . ' ' . StringHelper::getHumanMonthFromDate(Carbon::parse($carbonDate));
             $entry = [$carbonDate->year . ' ' . StringHelper::getHumanMonthFromDate(Carbon::parse($carbonDate))];
             foreach ($categoryIds as $categoryId) {
                 $item = $items->firstWhere('category_id', $categoryId);
+                $this->addAddItemToChartData($chartData, $label, $categoryId, $item);
                 if ($item) {
                     $entry[] = [
                         'category_id' => $item->category_id,
@@ -77,6 +81,13 @@ class LocationStatisticsController extends Controller
             }
             $result[] = $entry;
         }
-        return $result;
+        return [$result, $chartData];
+    }
+
+    private function addAddItemToChartData(array &$chartData, string $label, int $categoryId, $item = null)
+    {
+        $chartData[$categoryId]['labels'][] = $label;
+        $chartData[$categoryId]['values'][] = $item ? $item->average_price : 0;
+        $chartData[$categoryId]['count'][] = $item ? $item->count : 0;
     }
 }

@@ -165,6 +165,8 @@
 <script type="text/javascript" src="{{ asset('js/jquery.dependClass-0.1.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/draggable-0.1.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.slider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.slider.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 <!--[if gt IE 8]>
 <script type="text/javascript" src="{{ asset('js/ie.js') }}"></script>
