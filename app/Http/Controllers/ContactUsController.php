@@ -26,7 +26,7 @@ class ContactUsController extends Controller
             'recipient' => 'tbotee@yahoo.com',
             'data' => $validated
         ]);
-        //Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
+        Mail::to('tbotee@yahoo.com')->send(new ContactFormMail($validated));
 
         return back()->with('success', __('contact.thank_you_for_contacting'));
     }
