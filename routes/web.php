@@ -6,6 +6,7 @@ use App\Http\Controllers\LocationStatisticsController;
 use App\Http\Controllers\RegionStatisticsController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,14 @@ Route::get('lang/{locale}', function ($locale) {
     session(['locale' => $locale]);
     return redirect()->back();
 });
+
+Route::get('/secret-email-log-viewer', function () {
+    $logFilePath = storage_path('logs/email.log');
+
+    if (!File::exists($logFilePath)) {
+        abort(404, 'Log file not found.');
+    }
+    $logContents = File::get($logFilePath);
+
+    return response('<pre>' . htmlspecialchars($logContents) . '</pre>');
+})->name('secret.email.log');
