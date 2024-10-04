@@ -32,5 +32,5 @@ return [
     "current_date" => "Prețuri curente",
     "x_rooms" => ":count camere",
     "1_rooms" => "Garzonieră",
-
+    "select_city_title" => "Prețurile apartamentelor din :city, :region"
 ];

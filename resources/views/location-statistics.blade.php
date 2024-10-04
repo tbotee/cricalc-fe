@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-9 col-sm-10">
                 <section id="fun-facts" class="counting-numbers">
-                    <header><h1>{{ __('body.select_city_title', ['city_name' => $city->name ]) }}</h1></header>
+                    <header><h1>{{ __('body.select_city_title', ['city' => $city->name, 'region' => $city->region->name]) }}</h1></header>
                     @if($currentStatistics->count())
                     <p>Descoperă prețurile medii ale apartamentelor cu 1, 2, 3 și 4 camere din {{ $city->name }}, {{ $city->region->name  }}. Aici găsești informații esențiale despre piața imobiliară locală, care te vor ajuta să iei decizii informate, fie că intenționezi să închiriezi sau să achiziționezi un apartament. Fii la curent cu cele mai recente tendințe și date privind prețurile, adaptate nevoilor tale specifice, pentru a-ți maximiza oportunitățile în această piață dinamică.</p>
                     <div class="statistics-row">
