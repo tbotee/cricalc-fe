@@ -22,7 +22,7 @@ class ContactUsController extends Controller
             'form-contact-message' => 'required',
         ]);
 
-        Log::channel('single')->info('Contact Form Email:', [
+        Log::channel('email_log')->info('Contact Form Email:', [
             'recipient' => 'tbotee@yahoo.com',
             'data' => $validated
         ]);
