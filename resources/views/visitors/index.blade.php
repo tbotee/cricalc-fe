@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a></li>
+            <li class="active">Visitors</li>
+        </ol>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <section id="select-package">
