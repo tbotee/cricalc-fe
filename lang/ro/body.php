@@ -33,5 +33,6 @@ return [
     "x_rooms" => ":count camere",
     "1_rooms" => "Garzonieră",
     "select_city_title" => "Prețurile apartamentelor din :city, :region",
-    "date" => "Data"
+    "date" => "Data",
+    "page_not_found" => "Pagina nu a fost găsită",
 ];
