@@ -23,7 +23,7 @@
                                 <figure>{{ $cityStatistics->city->name  }}</figure>
                             </div>
                             <hr>
-                            <a href="{{ route('region.show', ['regionSlug' => $cityStatistics->city->region->slug, 'date' => $currentDateHumanFormat]) }}"
+                            <a href="{{ route('location.show', ['regionSlug' => $cityStatistics->city->region->slug, 'locationSlug' => $cityStatistics->city->slug]) }}"
                                class="link-arrow">{{ __('body.read_more')  }}</a>
                         </div>
                     </div>
