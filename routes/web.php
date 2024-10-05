@@ -68,3 +68,5 @@ Route::get('/secret-email-log-viewer', function () {
 
     return response('<pre>' . htmlspecialchars($logContents) . '</pre>');
 })->name('secret.email.log');
+
+Route::get('/visitors', [VisitorController::class, 'index']);
