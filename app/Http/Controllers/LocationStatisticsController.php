@@ -87,7 +87,7 @@ class LocationStatisticsController extends Controller
     private function addAddItemToChartData(array &$chartData, string $label, int $categoryId, $item = null)
     {
         $chartData[$categoryId]['labels'][] = $label;
-        $chartData[$categoryId]['values'][] = $item ? $item->average_price : 0;
-        $chartData[$categoryId]['count'][] = $item ? $item->count : 0;
+        $chartData[$categoryId]['values'][] = $item ? $item->average_price : null;
+        $chartData[$categoryId]['count'][] = $item ? $item->count : null;
     }
 }

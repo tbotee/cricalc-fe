@@ -125,25 +125,30 @@
                     label: '{{ __('body.1_rooms') }}', // Label for the dataset
                     data: chartData[1163]['values'], // Data points for the chart from the Laravel variable
                     borderColor: 'rgba(52, 152, 219, 1)', // Customize as needed
-                    borderWidth: 1
+                    borderWidth: 1,
+                    spanGaps: true
+
                 },
                 {
                     label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 2]) }}', // Label for the dataset
                     data: chartData[1165]['values'], // Data points for the chart from the Laravel variable
                     borderColor: 'rgba(46, 204, 113, 1)', // Customize as needed
-                    borderWidth: 1
+                    borderWidth: 1,
+                    spanGaps: true
                 },
                 {
                     label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 3]) }}', // Label for the dataset
                     data: chartData[1167]['values'], // Data points for the chart from the Laravel variable
                     borderColor: 'rgba(230, 126, 34, 1)', // Customize as needed
-                    borderWidth: 1
+                    borderWidth: 1,
+                    spanGaps: true
                 },
                 {
                     label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 4]) }}', // Label for the dataset
                     data: chartData[1169]['values'], // Data points for the chart from the Laravel variable
                     borderColor: 'rgba(155, 89, 182, 1)', // Customize as needed
-                    borderWidth: 1
+                    borderWidth: 1,
+                    spanGaps: true
                 }
             ]
             },
