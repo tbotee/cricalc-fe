@@ -35,4 +35,6 @@ return [
     "select_city_title" => "Prețurile apartamentelor din :city, :region",
     "date" => "Data",
     "page_not_found" => "Pagina nu a fost găsită",
+    "copyright" => "Toate Drepturile Rezervate.",
+    "back_to_top" => "Înapoi la început",
 ];
