@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('meta.city_title', ['region' =>  $city->region->name, 'city' => $city->name]))
+@section('city_description', __('meta.meta_description_region_statistics', ['region' =>  $city->region->name, 'city' => $city->name]))
+@section('city_keywords', __('meta.meta_keywords_region_statistics', ['region' =>  $city->region->name, 'city' => $city->name]))
+
 @section('bodyProps')
     class="page-sub-page page-profile page-account" id="page-top"
 @endsection
@@ -40,9 +44,9 @@
                     @endif
 
                 </section>
-{{--                <section>--}}
-{{--                    <canvas id="myChart" width="400" height="200"></canvas>--}}
-{{--                </section>--}}
+                <section>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                </section>
                 <section id="select-package">
                     <p>Consultă tabelul nostru pentru a analiza evoluția prețurilor medii ale apartamentelor din {{ $city->name}}, {{ $city->region->name  }} de-a lungul lunilor. Acest istoric te va ajuta să observi tendințele pieței imobiliare și să iei decizii informate, fie că ești în căutarea unei locuințe de închiriat sau dorind să investești în proprietăți.
                     </p>
@@ -107,34 +111,52 @@
         </script>
     @endif
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{{--    <script>--}}
-{{--        const chartData = @json($chartData);--}}
+    <script>
+        const chartData = @json($chartData);
 
-{{--        console.log(chartData[1163]['values']);--}}
+        console.log(chartData[1163]['values']);
 
-{{--        const ctx = document.getElementById('myChart').getContext('2d');--}}
-{{--        const myChart = new Chart(ctx, {--}}
-{{--            type: 'line', // Change this to the chart type you want (e.g., 'line', 'bar', etc.)--}}
-{{--            data: {--}}
-{{--                labels: chartData[1163]['labels'],--}}
-{{--                datasets: [{--}}
-{{--                    label: 'Sample Data', // Label for the dataset--}}
-{{--                    data: chartData[1163]['values'], // Data points for the chart from the Laravel variable--}}
-{{--                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Customize as needed--}}
-{{--                    borderColor: 'rgba(75, 192, 192, 1)', // Customize as needed--}}
-{{--                    borderWidth: 1--}}
-{{--                }]--}}
-{{--            },--}}
-{{--            options: {--}}
-{{--                scales: {--}}
-{{--                    y: {--}}
-{{--                        beginAtZero: true--}}
-{{--                    }--}}
-{{--                }--}}
-{{--            }--}}
-{{--        });--}}
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line', // Change this to the chart type you want (e.g., 'line', 'bar', etc.)
+            data: {
+                labels: chartData[1163]['labels'],
+                datasets: [{
+                    label: '{{ __('body.1_rooms') }}', // Label for the dataset
+                    data: chartData[1163]['values'], // Data points for the chart from the Laravel variable
+                    borderColor: 'rgba(52, 152, 219, 1)', // Customize as needed
+                    borderWidth: 1
+                },
+                {
+                    label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 2]) }}', // Label for the dataset
+                    data: chartData[1165]['values'], // Data points for the chart from the Laravel variable
+                    borderColor: 'rgba(46, 204, 113, 1)', // Customize as needed
+                    borderWidth: 1
+                },
+                {
+                    label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 3]) }}', // Label for the dataset
+                    data: chartData[1167]['values'], // Data points for the chart from the Laravel variable
+                    borderColor: 'rgba(230, 126, 34, 1)', // Customize as needed
+                    borderWidth: 1
+                },
+                {
+                    label: '{{ __('body.apartment_cu_x_camere', ['room_count' => 4]) }}', // Label for the dataset
+                    data: chartData[1169]['values'], // Data points for the chart from the Laravel variable
+                    borderColor: 'rgba(155, 89, 182, 1)', // Customize as needed
+                    borderWidth: 1
+                }
+            ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-{{--        console.log(chartData);--}}
-{{--    </script>--}}
+        console.log(chartData);
+    </script>
 
 @endsection
