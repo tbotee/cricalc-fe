@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LocationStatisticsController;
 use App\Http\Controllers\RegionStatisticsController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
 
