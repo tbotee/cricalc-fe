@@ -11,9 +11,8 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Account</a></li>
-            <li class="active">Profile</li>
+            <li><a href="{{ route('welcome') }}">{{ __('menu.home') }}</a></li>
+            <li class="active">{{ $city->region->name }}</li>
         </ol>
     </div>
 
