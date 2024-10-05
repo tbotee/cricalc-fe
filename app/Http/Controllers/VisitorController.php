@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Visitor;
+use Illuminate\Support\Facades\DB;
+
 
 class VisitorController extends Controller
 {
