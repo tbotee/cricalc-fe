@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', __('meta.city_title', ['region' =>  $city->region->name, 'city' => $city->name]))
-@section('city_description', __('meta.meta_description_region_statistics', ['region' =>  $city->region->name, 'city' => $city->name]))
-@section('city_keywords', __('meta.meta_keywords_region_statistics', ['region' =>  $city->region->name, 'city' => $city->name]))
+@section('meta_description', __('meta.city_description', ['region' =>  $city->region->name, 'city' => $city->name]))
+@section('meta_keywords', __('meta.city_keywords', ['region' =>  $city->region->name, 'city' => $city->name]))
 
 @section('bodyProps')
     class="page-sub-page page-profile page-account" id="page-top"
