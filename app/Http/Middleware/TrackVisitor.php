@@ -17,6 +17,16 @@ class TrackVisitor
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $currentRouteName = $request->route()->getName();
+        $excludedRoutes = [
+            'secret.email.log',
+            'visitors.index',
+        ];
+
+        if (in_array($currentRouteName, $excludedRoutes)) {
+            return $next($request);
+        }
+
         $ip = $request->ip();
         $userAgent = $request->header('User-Agent');
         $timestamp = now()->format('Y-m-d');
