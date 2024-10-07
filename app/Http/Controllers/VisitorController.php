@@ -15,6 +15,9 @@ class VisitorController extends Controller
             ->orderBy('date', 'desc')
             ->get();
 
-        return view('visitors.index', ['visitors' => $visitors]);
+        return view('visitors.index', [
+            'visitors' => $visitors,
+            'noIndex' => true,
+        ]);
     }
 }
