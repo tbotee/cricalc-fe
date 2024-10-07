@@ -22,6 +22,9 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
+    @if(!empty($noIndex))
+        <meta name="googlebot" content="noindex">
+    @endif
 </head>
 <body @yield('bodyProps')>
 <div class="wrapper">
