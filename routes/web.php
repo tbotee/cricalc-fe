@@ -67,19 +67,24 @@ Route::get('/secret-email-log-viewer', function () {
     }
     $logContents = File::get($logFilePath);
 
-    preg_match('/Contact Form Email: (.+)/', $logContents, $matches);
+    preg_match_all('/Contact Form Email: (.+)/', $logContents, $matches);
 
-    if (isset($matches[1])) {
-        $jsonData = json_decode($matches[1], true);
+    $messages = [];
 
-        if (isset($jsonData['data']['form-contact-message'])) {
-            $message = $jsonData['data']['form-contact-message'];
-            return response('<pre>' . htmlspecialchars($message) . '</pre>');
+    if (!empty($matches[1])) {
+        foreach ($matches[1] as $jsonString) {
+            $jsonData = json_decode($jsonString, true);
+            if (isset($jsonData['data']['form-contact-message'])) {
+                $messages[] = $jsonData['data']['form-contact-message'];
+            }
+        }
+        if (!empty($messages)) {
+            return response('<pre>' . htmlspecialchars(implode("\n\n", $messages)) . '</pre>');
         } else {
-            return response('<pre>Form contact message not found.</pre>');
+            return response('<pre>No form contact messages found in the log file.</pre>');
         }
     } else {
-        return response('<pre>Invalid log format.</pre>');
+        return response('<pre>Invalid log format or no matching logs found.</pre>');
     }
 
 })->name('secret.email.log');
