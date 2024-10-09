@@ -23,7 +23,7 @@
                             <tbody>
                             @foreach ($visitors as $visitor)
                                 <tr>
-                                    <td>{{ $visitor->date }}</td>
+                                    <td>{{ $visitor->date->diffForHumans() }}</td>
                                     <td>{{ $visitor->visitor_count }}</td>
                                     <td>{{ $visitor->total_navigation_count }}</td>
                                 </tr>

@@ -14,4 +14,8 @@ class Visitor extends Model
         'date',
         'navigation_count',
     ];
+
+    protected $casts = [
+        'date' => 'date',
+    ];
 }
