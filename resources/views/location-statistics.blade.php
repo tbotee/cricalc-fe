@@ -73,19 +73,6 @@
                 <section>
                     <canvas id="myChart" width="400" height="200"></canvas>
                 </section>
-                <section>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                            crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-9218405650262587"
-                         data-ad-slot="6504357923"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </section>
                 <section id="select-package">
                     <p>Consultă tabelul nostru pentru a analiza evoluția prețurilor medii ale apartamentelor din {{ $city->name}}, {{ $city->region->name  }} de-a lungul lunilor. Acest istoric te va ajuta să observi tendințele pieței imobiliare și să iei decizii informate, fie că ești în căutarea unei locuințe de închiriat sau dorind să investești în proprietăți.
                     </p>
@@ -137,6 +124,19 @@
                             </tbody>
                         </table>
                     </div><!-- /.submit-pricing -->
+                </section>
+                <section>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
+                            crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9218405650262587"
+                         data-ad-slot="6504357923"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </section>
             </div>
         </div>
