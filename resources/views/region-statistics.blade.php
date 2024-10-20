@@ -49,7 +49,18 @@
                 </section>
                 <section>
                     <aside>
-                        <x-your-ad-here class="vertical"/>
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
+                                crossorigin="anonymous"></script>
+                        <!-- Side -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9218405650262587"
+                             data-ad-slot="5765991328"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </aside>
                 </section>
 
@@ -58,6 +69,20 @@
                 <section id="agencies-listing">
                     <header><h1>{{ __('body.region_page_title', ['year' => $dateYear, 'month' => $dateMonth, 'region' => $region->name]) }} </h1></header>
                     <p>{{ __('meta.meta_description_region_statistics', ['region' => $region->name]) }}</p>
+                </section>
+                <section>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
+                            crossorigin="anonymous"></script>
+                    <!-- Horiontal -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9218405650262587"
+                         data-ad-slot="6693557047"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </section>
                 <div class="fun-facts no-line">
                     @foreach ($data as $cityStatistics)
@@ -90,7 +115,20 @@
                         </section>
                     @endforeach
                 </div>
-
+                <section>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
+                            crossorigin="anonymous"></script>
+                    <!-- Horiontal -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9218405650262587"
+                         data-ad-slot="6693557047"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </section>
             </div>
         </div>
     </div>
