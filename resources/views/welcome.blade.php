@@ -56,11 +56,11 @@
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
                 crossorigin="anonymous"></script>
-        <!-- Horiontal -->
+        <!-- Home top -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-9218405650262587"
-             data-ad-slot="6693557047"
+             data-ad-slot="5191276258"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
@@ -72,11 +72,11 @@
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
                 crossorigin="anonymous"></script>
-        <!-- Horiontal -->
+        <!-- Home middle -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-9218405650262587"
-             data-ad-slot="6693557047"
+             data-ad-slot="6310413667"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
@@ -88,11 +88,11 @@
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
                 crossorigin="anonymous"></script>
-        <!-- Horiontal -->
+        <!-- Home bottom -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-9218405650262587"
-             data-ad-slot="6693557047"
+             data-ad-slot="3564830826"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
