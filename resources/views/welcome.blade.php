@@ -54,8 +54,6 @@
 @section('content')
     <x-city-listing :statistics_data="$one_room_apartments" :title="__('body.cheapest_cities_with_1_rooms')"/>
     <div class="container">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                crossorigin="anonymous"></script>
         <!-- Home top -->
         <ins class="adsbygoogle"
              style="display:block"
@@ -70,8 +68,6 @@
     <x-city-listing :statistics_data="$two_room_apartments"
                     :title="__('body.cheapest_cities_with_x_rooms', ['room_count' => config('constants.apartment_types')['2-camere']])"/>
     <div class="container">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                crossorigin="anonymous"></script>
         <!-- Home middle -->
         <ins class="adsbygoogle"
              style="display:block"
@@ -86,8 +82,6 @@
     <x-city-listing :statistics_data="$three_room_apartments"
                     :title="__('body.cheapest_cities_with_x_rooms', ['room_count' => config('constants.apartment_types')['3-camere']])"/>
     <div class="container">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                crossorigin="anonymous"></script>
         <!-- Home bottom -->
         <ins class="adsbygoogle"
              style="display:block"

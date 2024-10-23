@@ -169,6 +169,8 @@
 <script type="text/javascript" src="{{ asset('js/draggable-0.1.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.slider.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
+        crossorigin="anonymous"></script>
 <!--[if gt IE 8]>
 <script type="text/javascript" src="{{ asset('js/ie.js') }}"></script>
 <![endif]-->

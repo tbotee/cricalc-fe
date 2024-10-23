@@ -24,8 +24,6 @@
                         <x-forms.city-select-box :regionSlug="$regionSlug" :locationSlug="$locationSlug"/>
                     </aside>
                     <aside>
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                                crossorigin="anonymous"></script>
                         <!-- City Side -->
                         <ins class="adsbygoogle"
                              style="display:block"
@@ -57,19 +55,19 @@
                     @endif
 
                 </section>
-                <section>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                            crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-9218405650262587"
-                         data-ad-slot="7817439592"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </section>
+                @if($currentStatistics->count())
+                    <section>
+                        <ins class="adsbygoogle"
+                             style="display:block; text-align:center;"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-9218405650262587"
+                             data-ad-slot="7817439592"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </section>
+                @endif
                 <section>
                     <canvas id="myChart" width="400" height="200"></canvas>
                 </section>
@@ -126,8 +124,6 @@
                     </div><!-- /.submit-pricing -->
                 </section>
                 <section>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9218405650262587"
-                            crossorigin="anonymous"></script>
                     <ins class="adsbygoogle"
                          style="display:block; text-align:center;"
                          data-ad-layout="in-article"
