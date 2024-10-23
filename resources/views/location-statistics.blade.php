@@ -149,8 +149,6 @@
     <script>
         const chartData = @json($chartData);
 
-        console.log(chartData[1163]['values']);
-
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line', // Change this to the chart type you want (e.g., 'line', 'bar', etc.)
@@ -196,8 +194,6 @@
                 }
             }
         });
-
-        console.log(chartData);
     </script>
 
 @endsection
