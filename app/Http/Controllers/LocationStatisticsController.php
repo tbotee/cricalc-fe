@@ -54,7 +54,7 @@ class LocationStatisticsController extends Controller
         $chartData = [];
         $statistics = $this->aSS->getCityStatisticsForCitiesWithCategories(
             Carbon::create(1970, 1, 1),
-            $date->copy()->addDays(-1),
+            $date->copy()->endOfMonth(),
             config('constants.category_mapping'),
             [$city->id],
             ['created_at', 'DESC']
